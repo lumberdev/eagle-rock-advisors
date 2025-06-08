@@ -131,6 +131,11 @@ const Page: Collection = {
           label: 'Image',
         },
         {
+          type: 'image',
+          name: 'secondImage',
+          label: 'Second Image',
+        },
+        {
           type: 'string',
           name: 'heading',
           label: 'Heading',
@@ -170,6 +175,14 @@ const Page: Collection = {
           type: 'string',
           name: 'heading',
           label: 'Heading',
+        },
+        {
+          type: 'string',
+          name: 'description',
+          label: 'Description',
+          ui: {
+            component: 'textarea',
+          },
         },
         {
           type: 'object',
@@ -223,10 +236,35 @@ const Page: Collection = {
           ],
         },
         {
-          type: 'image',
-          name: 'carouselImages',
-          label: 'Carousel Images',
+          type: 'object',
+          name: 'carouselItems',
+          label: 'Carousel Items',
           list: true,
+          ui: {
+            itemProps: (item) => ({
+              label: item?.heading || `Carousel Item ${(item?._values?.index || 0) + 1}`
+            }),
+          },
+          fields: [
+            {
+              type: 'string',
+              name: 'heading',
+              label: 'Heading',
+              description: 'Optional heading for this carousel item',
+            },
+            {
+              type: 'image',
+              name: 'colorImage',
+              label: 'Color Image',
+              required: true,
+            },
+            {
+              type: 'image',
+              name: 'monochromeImage',
+              label: 'Monochrome Image',
+              required: true,
+            },
+          ],
         },
       ],
     },

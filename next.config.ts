@@ -1,30 +1,52 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  webpack(config) {
-    // Grab the existing rule that handles SVG imports
-    const fileLoaderRule = config.module.rules.find((rule) =>
-      rule.test?.test?.('.svg')
-    );
-
-    config.module.rules.push(
-      // Reapply the existing rule, but only for svg imports ending in ?url
-      {
-        ...fileLoaderRule,
-        test: /\.svg\?url$/,
-        resourceQuery: /url/, // *.svg?url
+  // Enable Turbopack (only for development)
+  experimental: {
+    turbo: {
+      // Configure Turbopack rules
+      rules: {
+        // Handle SVGR for SVG files
+        '*.svg': {
+          loaders: ['@svgr/webpack'],
+          as: '*.js',
+        },
       },
-      // Convert all other *.svg imports to React components
-      {
-        test: /\.svg$/i,
-        issuer: /\.[jt]sx?$/,
-        resourceQuery: { not: /url/ }, // exclude if *.svg?url
-        use: ['@svgr/webpack'],
-      }
-    );
+    },
+  },
+  webpack: (config, { isServer }) => {
+    // Only apply webpack config when not using Turbopack
+    if (!process.env.TURBOPACK) {
+      // Grab the existing rule that handles SVG imports
+      const fileLoaderRule = config.module.rules.find((rule) => rule.test?.test?.('.svg'));
 
-    // Modify the file loader rule to ignore *.svg, since we have it handled now.
-    fileLoaderRule.exclude = /\.svg$/i;
+      // Exclude SVG from the default file loader
+      fileLoaderRule.exclude = /\.svg$/i;
+
+      // Add SVGR loader
+      config.module.rules.push({
+        test: /\.svg$/i,
+        use: [
+          {
+            loader: '@svgr/webpack',
+            options: {
+              svgo: false, // Disable SVGO optimization to prevent issues with dynamic colors
+              titleProp: true,
+            },
+          },
+        ],
+      });
+    }
+
+    // Suppress warnings about bufferutil and utf-8-validate
+    // Supabase uses ws for realtime functionality which has optional dependencies on these packages
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        bufferutil: false,
+        'utf-8-validate': false,
+      };
+    }
 
     return config;
   },
