@@ -1,17 +1,18 @@
 import React, { PropsWithChildren } from 'react';
-import { Header } from '../header';
-import { Footer } from '../footer';
+import { Header } from '../Header';
+import { Footer } from '../Footer';
+import { dreaming, monaSans } from '@/assets/fonts/fonts';
 
 type LayoutProps = PropsWithChildren & {
   rawPageData?: any;
 };
 
-export default async function Layout({ children }: LayoutProps) {
+export default function Layout({ children }: LayoutProps) {
   return (
-    <>
+    <div className={`${dreaming.variable} ${monaSans.variable}`}>
       <Header />
-      <main className="overflow-x-hidden pt-20">{children}</main>
+      <main>{children}</main>
       <Footer />
-    </>
+    </div>
   );
 }

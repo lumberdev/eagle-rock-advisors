@@ -1,31 +1,32 @@
 import React from 'react';
 import client from '@/tina/__generated__/client';
 import Layout from '@/components/layout/layout';
+import HomePage from '@/components/Home/HomePage';
+import { PageQuery, PageQueryVariables } from '@/tina/__generated__/types';
+import { notFound } from 'next/navigation';
 
-export const revalidate = 300;
+const Home = async () => {
+  let data: PageQuery | undefined = undefined;
+  let query: string = '';
+  let variables: PageQueryVariables = { relativePath: `Home.mdx` };
 
-export default async function Home() {
   try {
-    const data = await client.queries.page({
-      relativePath: `home.mdx`,
-    });
-    console.log('Successfully fetched page data:', data);
-    
-    return (
-      <Layout>
-        <h1>Home</h1>
-      </Layout>
-    );
+    const res = await client.queries.page(variables);
+    query = res.query;
+    data = res.data;
+    variables = res.variables;
   } catch (error) {
-    console.error('Error fetching page data:', error);
-    
-    return (
-      <Layout>
-        <div className="container mx-auto py-10">
-          <h1 className="text-3xl font-bold mb-4">Welcome to Eagle Rock Advisors</h1>
-          <p>Content is being prepared. Please check back soon.</p>
-        </div>
-      </Layout>
-    );
+    console.error(error);
+    console.error('Failed to load page data');
   }
-}
+
+  if (!data) return notFound();
+
+  return (
+    <Layout>
+      <HomePage query={query} variables={variables} data={data} />
+    </Layout>
+  );
+};
+
+export default Home;
