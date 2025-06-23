@@ -47,6 +47,12 @@ const Page: Collection = {
         },
         {
           type: 'image',
+          name: 'backgroundImageMobile',
+          label: 'Background Image Mobile',
+          description: 'Used as fallback if video is not available',
+        },
+        {
+          type: 'image',
           name: 'videoFile',
           label: 'Background Video',
           description: 'Local video file for hero background (MP4 format recommended)',
@@ -242,7 +248,7 @@ const Page: Collection = {
           list: true,
           ui: {
             itemProps: (item) => ({
-              label: item?.heading || `Carousel Item ${(item?._values?.index || 0) + 1}`
+              label: item?.heading || `Carousel Item ${(item?._values?.index || 0) + 1}`,
             }),
           },
           fields: [

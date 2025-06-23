@@ -31,12 +31,12 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
   if (!images?.length) return null;
 
   // fadeout the nonactive image fast
-  const fadeOutDuration = 'duration-[300ms]';
+  const fadeOutDuration = 'duration-[500ms]';
   // animate the active image slow
-  const animationDurationClass = 'duration-[700ms]';
+  const animationDurationClass = 'duration-[900ms]';
   // animate the name slow with delay
-  const NameDuration = 'duration-[600ms] delay-[300ms]';
-  const slideChangeDuration = 3000;
+  const NameDuration = 'duration-[600ms] delay-[600ms]';
+  const slideChangeDuration = 7000;
   return (
     <div className="relative w-full">
       <Swiper
@@ -74,7 +74,7 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
               className={clsx(
                 'relative w-[35%] max-w-[300px] transition-transform',
                 isActive ? animationDurationClass : fadeOutDuration,
-                'lg:max-w-[600px] xl:max-w-[800px] 2xl:max-w-[1000px]'
+                'lg:max-w-[600px] xl:max-w-[700px] 2xl:max-w-[700px]'
               )}
             >
               <h6

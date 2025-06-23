@@ -2,7 +2,8 @@
 
 @theme {
   /* ===== Font Families ===== */
-  --font-monaSans: 'monaSans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  --font-monaSans:
+    monaSans, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     'Helvetica Neue', Arial, sans-serif;
   --font-dreaming: 'dreaming', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
 
@@ -30,6 +31,7 @@
   --color-black: #000000;
 
   /* ===== Typography ===== */
+  /* Font Sizes */
   --font-size-xs: 0.75rem; /* 12px */
   --font-size-sm: 0.875rem; /* 14px */
   --font-size-base: 1rem; /* 16px */
@@ -41,22 +43,31 @@
   --font-size-5xl: 3rem; /* 48px */
   --font-size-6xl: 3.75rem; /* 60px */
   --font-size-7xl: 4.5rem; /* 72px */
+  --font-size-8xl: 6rem; /* 96px */
+  --font-size-9xl: 8rem; /* 128px */
 
   /* Line Heights */
   --line-height-none: 1;
-  --line-height-tight: 1.25;
-  --line-height-snug: 1.375;
-  --line-height-normal: 1.5;
-  --line-height-relaxed: 1.625;
-  --line-height-loose: 2;
+  --line-height-tight: 1.1; /* 110% */
+  --line-height-body: 1.4; /* 140% */
+  --line-height-relaxed: 1.5; /* 150% */
+  --line-height-loose: 1.6; /* 160% */
+
+  /* Font Weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 
   /* Letter Spacing */
+  --tracking-tightest: -0.06em;
   --tracking-tighter: -0.05em;
   --tracking-tight: -0.025em;
   --tracking-normal: 0em;
   --tracking-wide: 0.025em;
   --tracking-wider: 0.05em;
   --tracking-widest: 0.1em;
+  --tracking-widest-2: 0.2em;
 
   /* Border Radius */
   --radius-none: 0px;
@@ -115,27 +126,130 @@
   h4,
   h5,
   h6 {
-    font-family: var(--font-serif);
+    font-family: var(--font-dreaming);
     font-weight: 400;
-    line-height: var(--line-height-tight);
+    letter-spacing: 0;
+    color: var(--color-white);
   }
 
-  h1 {
-    font-size: var(--font-size-5xl);
+  .body-xlarge,
+  .body-large,
+  .body-regular,
+  .body-small,
+  .overline,
+  .label-large,
+  .label-medium,
+  .label-small {
+    font-family: var(--font-mona-sans);
   }
-  h2 {
-    font-size: var(--font-size-4xl);
+
+  /* Typography */
+  h1,
+  .h1 {
+    font-size: 90px; /* 90px */
+    line-height: 1;
   }
-  h3 {
-    font-size: var(--font-size-3xl);
+
+  h2,
+  .h2 {
+    font-size: 68px; /* 68px */
+    line-height: 1;
   }
-  h4 {
-    font-size: var(--font-size-2xl);
+
+  h3,
+  .h3 {
+    font-size: 52px; /* 52px */
+    line-height: 1.4; /* 140% */
   }
-  h5 {
-    font-size: var(--font-size-xl);
+
+  h4,
+  .h4 {
+    font-size: 38px; /* 38px */
+    line-height: 1.4; /* 140% */
   }
-  h6 {
-    font-size: var(--font-size-lg);
+
+  h5,
+  .h5 {
+    font-size: 28px; /* 28px */
+    line-height: 1.4; /* 140% */
+  }
+
+  h6,
+  .h6 {
+    font-size: 22px; /* 22px */
+    line-height: 1.4; /* 140% */
+  }
+
+  /* Overline style */
+  .overline {
+    font-size: 12px; /* 12px */
+    line-height: 1.6; /* 160% */
+    letter-spacing: 0.1em; /* 10% */
+  }
+
+  /* Override for label line heights */
+  .label-large,
+  .label-medium,
+  .label-small {
+    letter-spacing: 0.1em; /* 10% */
+  }
+
+  /* Label styles */
+  .label-large {
+    font-size: 22px; /* 22px */
+    line-height: 1.4; /* 140% */
+  }
+
+  .label-medium {
+    font-size: 16px; /* 16px */
+    line-height: 1.4; /* 140% */
+  }
+
+  .label-small {
+    font-size: 14px; /* 14px */
+    line-height: 1.6; /* 160% */
+  }
+
+  .body-xlarge {
+    font-size: 16px; /* 16px */
+    line-height: 1.6; /* 160% */
+  }
+  /* Body text styles */
+  .body-large {
+    font-size: 16px; /* 16px */
+    line-height: 1.4; /* 140% */
+  }
+
+  .body-regular {
+    font-size: 14px; /* 14px */
+    line-height: 1.6; /* 160% */
+  }
+
+  .body-small {
+    font-size: 12px; /* 12px */
+    line-height: 1.6; /* 160% */
+  }
+
+  .button-large,
+  .button-medium,
+  .button-small {
+    font-family: var(--font-mona-sans);
+    border-width: 2px;
+    border-style: solid;
+  }
+  .button-large {
+    font-size: 16px; /* 16px */
+    line-height: 1.4; /* 140% */
+    padding: 2.0313rem 1.25rem; /* 32.5px 20px */
+  }
+  .button-medium {
+    font-size: 14px; /* 14px */
+    line-height: 1.6; /* 160% */
+    padding: 1.5625rem 1.25rem; /* 25px 20px */
+  }
+  .button-small {
+    font-size: 12px; /* 12px */
+    line-height: 1.6; /* 160% */
+    padding: 1.125rem 1.25rem;
   }
 }

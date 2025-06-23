@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
+import './styles.css';
 
 export const metadata: Metadata = {
   title: 'Eagle Rock Advisors',
