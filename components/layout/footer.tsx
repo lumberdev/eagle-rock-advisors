@@ -1,5 +1,7 @@
 import React from 'react';
 import { NavigationFooter } from '@/tina/__generated__/types';
+import Link from 'next/link';
+import Image from 'next/image';
 
 interface FooterProps {
   data?: NavigationFooter | null;
@@ -8,55 +10,44 @@ interface FooterProps {
 export function Footer({ data }: FooterProps) {
   if (!data) return null;
 
+  console.log(data);
   return (
-    <footer className="bg-gray-800 text-white py-12">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Logo */}
-          <div>
-            {data.logo?.src && (
-              <img 
-                src={data.logo.src} 
-                alt={data.logo.alt || 'Logo'} 
-                className="h-12 w-auto mb-4"
-              />
-            )}
-            <p className="text-gray-400 text-sm">{data.copyright}</p>
-          </div>
-
-          {/* Main Links */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Links</h3>
-            <ul className="space-y-2">
-              {data.links?.map((link, index) => (
-                <li key={index}>
-                  <a 
-                    href={link?.href || '#'} 
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    {link?.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Sub Links */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              {data.subLinks?.map((link, index) => (
-                <li key={index}>
-                  <a 
-                    href={link?.href || '#'} 
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    {link?.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+    <footer className="bg-midnight-blue flex flex-col gap-[50px] px-[25px] py-[50px] text-white lg:gap-[25px] lg:px-[50px] lg:py-[25px]">
+      <div className="flex w-full items-center justify-between gap-[100px]">
+        {/* Logo */}
+        {data.logo?.src && (
+          <Image
+            src={data.logo.src}
+            alt={data.logo.alt || 'Logo'}
+            className="order-2 h-12 w-auto self-start lg:order-1"
+            width={100}
+            height={100}
+          />
+        )}
+        <div className="font-dreaming order-1 flex w-full flex-col items-start justify-between gap-[25px] lg:order-2 lg:flex-row lg:items-center">
+          {data.links?.map((link, index) => (
+            <Link key={index} href={link?.href || '#'} className="text-[22px] text-white">
+              {link?.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+      {/* Sub Links */}
+      <div className="font-monaSans flex w-full flex-col justify-between tracking-wider uppercase lg:flex-row lg:items-center">
+        <p className="text-steel-blue text-xs leading-loose">{data.copyright}</p>
+        <div className="flex items-center">
+          {data?.subLinks?.map((link, index, array) => (
+            <div key={index} className="leading-loose">
+              <Link href={link?.href || '#'} className="text-steel-blue text-xs">
+                {link?.label}
+              </Link>
+              <span
+                className={`text-steel-blue mx-[0.5rem] text-xs ${index === array?.length - 1 ? 'hidden' : ''}`}
+              >
+                |
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </footer>
