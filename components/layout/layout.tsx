@@ -1,18 +1,45 @@
 import React, { PropsWithChildren } from 'react';
-import { Header } from '../Header';
-import { Footer } from '../Footer';
+import { Header } from './header';
+import { Footer } from './footer';
 import { dreaming, monaSans } from '@/assets/fonts/fonts';
+import client from '@/tina/__generated__/client';
+import { NavigationQuery, NavigationQueryVariables } from '@/tina/__generated__/types';
 
 type LayoutProps = PropsWithChildren & {
   rawPageData?: any;
 };
 
-export default function Layout({ children }: LayoutProps) {
+// Fetch navigation data on the server side
+async function getNavigationData() {
+  let data: NavigationQuery | undefined = undefined;
+  let query = '';
+  let variables: NavigationQueryVariables = { relativePath: 'default.json' };
+
+  try {
+    const res = await client.queries.navigation(variables);
+    query = res.query;
+    data = res.data;
+    variables = res.variables;
+  } catch (error) {
+    console.error(error);
+    console.error('Failed to load navigation data');
+  }
+
+  return { data, query, variables };
+}
+
+export default async function Layout({ children }: LayoutProps) {
+  const { data: navigationData } = await getNavigationData();
+
+  // Extract header and footer data from navigation
+  const headerData = navigationData?.navigation?.header;
+  const footerData = navigationData?.navigation?.footer;
+
   return (
     <div className={`${dreaming.variable} ${monaSans.variable}`}>
-      <Header />
+      <Header data={headerData} />
       <main>{children}</main>
-      <Footer />
+      <Footer data={footerData} />
     </div>
   );
 }

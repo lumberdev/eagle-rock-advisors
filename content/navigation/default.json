@@ -1,0 +1,85 @@
+{
+  "header": {
+    "logo": {
+      "src": "/uploads/Logos/eagle_rocks_logo.svg",
+      "alt": "Eagle Rock Advisors"
+    },
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "About",
+        "href": "/about"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Contact",
+        "href": "/contact-us"
+      },
+      {
+        "label": "Properties",
+        "href": "/properties",
+        "isExternal": true
+      },
+      {
+        "label": "Investors",
+        "href": "/investors",
+        "isExternal": true
+      }
+    ],
+    "subLinks": [
+      {
+        "label": "Privacy Policy",
+        "href": "/privacy"
+      },
+      {
+        "label": "Terms of Service",
+        "href": "/terms"
+      }
+    ]
+  },
+  "footer": {
+    "logo": {
+      "src": "/uploads/Logos/eagle_rocks_footer_logo.svg",
+      "alt": "Eagle Rock Properties"
+    },
+    "copyright": "© 2025 Eagle Rock Properties LLC.",
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Properties",
+        "href": "/properties"
+      },
+      {
+        "label": "About",
+        "href": "/about"
+      },
+      {
+        "label": "Contact",
+        "href": "/contact"
+      },
+      {
+        "label": "Investors",
+        "href": "/investors"
+      }
+    ],
+    "subLinks": [
+      {
+        "label": "Privacy Policy",
+        "href": "/privacy"
+      },
+      {
+        "label": "Terms of Service",
+        "href": "/terms"
+      }
+    ]
+  }
+}

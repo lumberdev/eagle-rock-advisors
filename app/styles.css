@@ -1,3 +1,27 @@
+@keyframes bounce-horizontal {
+  0%,
+  100% {
+    transform: translateX(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateX(6px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 0.5;
+  }
+}
+
+body.preventScroll {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
 .PhoneInputCountry {
   border: 1px solid #ffffff40 !important;
   padding: 10px !important;
