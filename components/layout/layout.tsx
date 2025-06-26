@@ -7,6 +7,8 @@ import { NavigationQuery, NavigationQueryVariables } from '@/tina/__generated__/
 
 type LayoutProps = PropsWithChildren & {
   rawPageData?: any;
+  headerClassName?: string;
+  lightNavbar?: boolean;
 };
 
 // Fetch navigation data on the server side
@@ -28,7 +30,11 @@ async function getNavigationData() {
   return { data, query, variables };
 }
 
-export default async function Layout({ children }: LayoutProps) {
+export default async function Layout({
+  children,
+  headerClassName = '',
+  lightNavbar = false,
+}: LayoutProps) {
   const { data: navigationData } = await getNavigationData();
 
   // Extract header and footer data from navigation
@@ -37,7 +43,7 @@ export default async function Layout({ children }: LayoutProps) {
 
   return (
     <div className={`${dreaming.variable} ${monaSans.variable}`}>
-      <Header data={headerData} />
+      <Header data={headerData} headerClassName={headerClassName} lightNavbar={lightNavbar} />
       <main>{children}</main>
       <Footer data={footerData} />
     </div>

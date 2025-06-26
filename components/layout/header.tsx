@@ -6,9 +6,11 @@ import Navbar from './Navbar';
 
 interface HeaderProps {
   data?: NavigationHeader | null;
+  headerClassName?: string;
+  lightNavbar?: boolean;
 }
 
-export function Header({ data }: HeaderProps) {
+export function Header({ data, headerClassName, lightNavbar }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -60,10 +62,16 @@ export function Header({ data }: HeaderProps) {
     <header
       className={`fixed top-0 left-0 z-50 w-full transition-all duration-500 ease-in-out ${
         isVisible ? 'translate-y-0' : '-translate-y-[110%]'
-      } ${isScrolled ? 'bg-eagle-navy' : 'bg-transparent'}`}
+      } ${isScrolled ? 'bg-eagle-navy' : 'bg-transparent'} ${headerClassName}`}
     >
       <div className="w-full">
-        <Navbar data={data} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+        <Navbar
+          data={data}
+          isMenuOpen={isMenuOpen}
+          setIsMenuOpen={setIsMenuOpen}
+          lightNavbar={lightNavbar}
+          isScrolled={isScrolled}
+        />
         <NavMenu data={data} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       </div>
     </header>

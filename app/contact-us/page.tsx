@@ -8,7 +8,7 @@ import ContactUsPage from '@/components/Contact/ContactUsPage';
 const ContactUs = async () => {
   let data: PageQuery | undefined = undefined;
   let query: string = '';
-  let variables: PageQueryVariables = { relativePath: `contactus.mdx` };
+  let variables: PageQueryVariables = { relativePath: `contact-us.mdx` };
 
   try {
     const res = await client.queries.page(variables);

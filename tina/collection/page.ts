@@ -28,6 +28,15 @@ const Page: Collection = {
       fields: [
         {
           type: 'string',
+          name: 'overline',
+          label: 'Overline',
+          description: 'Small text that appears above the heading',
+          ui: {
+            component: 'text',
+          },
+        },
+        {
+          type: 'string',
           name: 'heading',
           label: 'Heading',
         },

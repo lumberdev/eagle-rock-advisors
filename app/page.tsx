@@ -8,7 +8,7 @@ import { notFound } from 'next/navigation';
 const Home = async () => {
   let data: PageQuery | undefined = undefined;
   let query: string = '';
-  let variables: PageQueryVariables = { relativePath: `Home.mdx` };
+  let variables: PageQueryVariables = { relativePath: `home.mdx` };
 
   try {
     const res = await client.queries.page(variables);
