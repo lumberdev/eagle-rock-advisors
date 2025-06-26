@@ -16,7 +16,7 @@ const Navbar = ({
   const menuClassName = 'h-[20px] w-[20px] transition-all duration-[1000ms]';
 
   return (
-    <div className="flex w-full items-center justify-between px-[25px] pt-[35px] lg:px-[50px] lg:pt-[50px]">
+    <div className="flex w-full items-center justify-between px-[25px] py-[35px] lg:px-[50px] lg:py-[50px]">
       {/* Logo */}
       <Logo logo={data?.logo} />
       <div

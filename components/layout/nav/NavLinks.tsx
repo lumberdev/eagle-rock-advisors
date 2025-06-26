@@ -16,10 +16,10 @@ const NavLinks = ({
         <Link
           key={index}
           href={link?.href || '#'}
-          className="group ml-[50px] flex items-center gap-2"
+          className="group flex items-center gap-2 lg:ml-[50px]"
           onClick={onLinkClick}
         >
-          <span className="font-dreaming text-[38px] leading-[120%] text-white transition-all duration-300 lg:text-[68px]">
+          <span className="font-dreaming text-[38px] leading-[140%] text-white transition-all duration-300 lg:text-[68px]">
             {link?.label}
           </span>
           <div
@@ -27,7 +27,7 @@ const NavLinks = ({
           >
             <LinkArrow
               alt="Arrow"
-              className={`${link?.isExternal ? 'group-hover:animate-[bounce-horizontal_1s_ease-out_infinite]' : ''}`}
+              className={`hidden lg:block ${link?.isExternal ? 'group-hover:animate-[bounce-horizontal_1s_ease-out_infinite]' : ''}`}
             />
           </div>
         </Link>
