@@ -322,6 +322,148 @@ const Page: Collection = {
       ],
     },
     {
+      type: 'object',
+      name: 'teamSection',
+      label: 'Team Section',
+      fields: [
+        {
+          type: 'string',
+          name: 'overline',
+          label: 'Overline',
+        },
+        {
+          type: 'string',
+          name: 'heading',
+          label: 'Heading',
+        },
+        {
+          type: 'string',
+          name: 'subheading',
+          label: 'Subheading',
+          ui: {
+            component: 'textarea',
+          },
+        },
+        {
+          type: 'object',
+          name: 'teamMembers',
+          label: 'Team Members',
+          list: true,
+          ui: {
+            itemProps: (item) => ({
+              label: item?.name || 'New Team Member',
+            }),
+          },
+          fields: [
+            {
+              type: 'image',
+              name: 'image',
+              label: 'Profile Image',
+            },
+            {
+              type: 'string',
+              name: 'name',
+              label: 'Full Name',
+            },
+            {
+              type: 'string',
+              name: 'title',
+              label: 'Job Title',
+            },
+            {
+              type: 'string',
+              name: 'company',
+              label: 'Company',
+            },
+            {
+              type: 'string',
+              name: 'bio',
+              label: 'Bio',
+              ui: {
+                component: 'textarea',
+              },
+            },
+            {
+              type: 'string',
+              name: 'linkedin',
+              label: 'LinkedIn URL',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      type: 'object',
+      name: 'managementTeamSection',
+      label: 'Management Team Section',
+      fields: [
+        {
+          type: 'string',
+          name: 'overline',
+          label: 'Overline',
+        },
+        {
+          type: 'string',
+          name: 'heading',
+          label: 'Heading',
+        },
+        {
+          type: 'string',
+          name: 'subheading',
+          label: 'Subheading',
+          ui: {
+            component: 'textarea',
+          },
+        },
+        {
+          type: 'object',
+          name: 'teamMembers',
+          label: 'Management Team Members',
+          list: true,
+          ui: {
+            itemProps: (item) => ({
+              label: item?.name || 'New Management Team Member',
+            }),
+          },
+          fields: [
+            {
+              type: 'image',
+              name: 'image',
+              label: 'Profile Image',
+            },
+            {
+              type: 'string',
+              name: 'name',
+              label: 'Full Name',
+            },
+            {
+              type: 'string',
+              name: 'title',
+              label: 'Job Title',
+            },
+            {
+              type: 'string',
+              name: 'company',
+              label: 'Company',
+            },
+            {
+              type: 'string',
+              name: 'bio',
+              label: 'Bio',
+              ui: {
+                component: 'textarea',
+              },
+            },
+            {
+              type: 'string',
+              name: 'linkedin',
+              label: 'LinkedIn URL',
+            },
+          ],
+        },
+      ],
+    },
+    {
       type: 'rich-text',
       name: 'body',
       label: 'Body Content',
