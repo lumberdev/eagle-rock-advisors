@@ -10,7 +10,6 @@ interface FooterProps {
 export function Footer({ data }: FooterProps) {
   if (!data) return null;
 
-  console.log(data);
   return (
     <footer className="bg-midnight-blue flex flex-col gap-[50px] px-[25px] py-[50px] text-white lg:gap-[25px] lg:px-[50px] lg:py-[25px]">
       <div className="flex w-full items-center justify-between gap-[100px]">

@@ -3,20 +3,20 @@ import Link from 'next/link';
 import { Maybe, NavigationHeaderLinks } from '@/tina/__generated__/types';
 import LinkArrow from '@/public/icons/link_arrow.svg';
 
-const NavLinks = ({ 
-  links, 
-  onLinkClick 
-}: { 
+const NavLinks = ({
+  links,
+  onLinkClick,
+}: {
   links: Maybe<Maybe<NavigationHeaderLinks>[]> | undefined;
   onLinkClick?: () => void;
 }) => {
   return (
     <nav className="flex flex-col items-center justify-center gap-[10px] px-[25px] lg:px-[50px]">
       {links?.map((link, index) => (
-        <Link 
-          key={index} 
-          href={link?.href || '#'} 
-          className="group flex items-center gap-2"
+        <Link
+          key={index}
+          href={link?.href || '#'}
+          className="group ml-[50px] flex items-center gap-2"
           onClick={onLinkClick}
         >
           <span className="font-dreaming text-[38px] leading-[120%] text-white transition-all duration-300 lg:text-[68px]">
