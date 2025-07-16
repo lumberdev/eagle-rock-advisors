@@ -6,7 +6,7 @@
     },
     "links": [
       {
-        "label": "Home",
+        "label": "About Us",
         "href": "/"
       },
       {
@@ -16,11 +16,6 @@
       {
         "label": "Contact",
         "href": "/contact-us"
-      },
-      {
-        "label": "Properties",
-        "href": "/properties",
-        "isExternal": true
       },
       {
         "label": "Investors",

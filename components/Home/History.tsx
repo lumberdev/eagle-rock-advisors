@@ -1,88 +1,87 @@
-import React, { useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import CTAButton from '../General/CTAButton';
 import HistoryCard from './HistoryCard';
+import Timeline from './Timeline';
+import useWindowDimensions from '@/utils/useWindowDimensions';
+
+const mobileCardHeight = 300;
+const desktopCardHeight = 450;
+const cardHeightClass = 'min-h-[300px] h-[300px] lg:h-[450px]';
+const desktopCircleFromTop = desktopCardHeight / 2; // 225px
+const mobileCircleFromTop = 40; // 13.33% from the top to align with the year text
 
 const History = ({ historyData }: { historyData: any }) => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
+  const { isDesktop } = useWindowDimensions();
 
   useEffect(() => {
-    let animationFrameId: number;
-    let lastScrollY = window.scrollY;
-    let ticking = false;
-
-    const updateScrollProgress = () => {
-      if (!containerRef.current) return;
-
-      const container = containerRef.current;
-      const containerRect = container.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      // Calculate scroll progress (0 to 1) for the entire history section
-      const start = container.offsetTop + 50;
-      const end = start + container.offsetHeight - windowHeight;
-      const currentScroll = lastScrollY;
-
-      let progress = 0;
-      if (currentScroll >= start && currentScroll <= end) {
-        progress = (currentScroll - start) / (end - start);
-      } else if (currentScroll > end) {
-        progress = 1;
-      }
-
-      setScrollProgress(progress);
-      ticking = false;
-    };
+    const container = containerRef.current;
+    if (!container) return;
 
     const handleScroll = () => {
-      lastScrollY = window.scrollY;
-      if (!ticking) {
-        ticking = true;
-        animationFrameId = requestAnimationFrame(updateScrollProgress);
+      const { top, bottom } = container.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const containerTop = top + window.scrollY;
+      const containerBottom = bottom + window.scrollY;
+      const scrollPosition = window.scrollY;
+
+      // Calculate when the container enters and exits the viewport
+      const containerStart = containerTop - windowHeight * 0.6;
+      const containerEnd = containerBottom - windowHeight * 0.4;
+      const scrollDistance = containerEnd - containerStart;
+
+      if (scrollPosition >= containerStart && scrollPosition <= containerEnd) {
+        const progress = (scrollPosition - containerStart) / scrollDistance;
+        setScrollProgress(Math.min(1, Math.max(0, progress)));
+      } else if (scrollPosition < containerStart) {
+        setScrollProgress(0);
+      } else if (scrollPosition > containerEnd) {
+        setScrollProgress(1);
       }
     };
 
-    // Use both scroll and wheel events for more frequent updates
     window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('wheel', handleScroll, { passive: true });
+    handleScroll(); // Initial calculation
 
-    // Initial call
-    updateScrollProgress();
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('wheel', handleScroll);
-      cancelAnimationFrame(animationFrameId);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <section ref={containerRef} className="px-[25px] pb-[100px] md:px-[100px]">
-      <h6 className="font-monaSans text-slate text-[1rem] leading-[140%] tracking-[1.6px] uppercase opacity-50">
-        {historyData?.heading}
-      </h6>
-      <div className="flex flex-col items-center justify-center gap-y-[50px]">
-        <h4 className="font-dreaming text-eagle-navy max-w-[30ch] text-center text-[48px] leading-[140%] tracking-[0]">
+    <section className="relative py-20">
+      <div className="relative flex w-full flex-col items-center justify-center gap-y-[25px] px-[25px] md:px-[100px] lg:gap-y-[50px]">
+        <h6 className="font-monaSans text-slate text-[14px] leading-[140%] tracking-[1.6px] uppercase opacity-50 lg:self-start lg:text-[1rem]">
+          {historyData?.heading}
+        </h6>
+        <h4 className="font-dreaming text-eagle-navy max-w-[30ch] text-center text-[28px] leading-[140%] tracking-[0] lg:text-[48px]">
           {historyData?.subHeading}
         </h4>
-        <CTAButton cta={historyData?.cta} />
-        <div className="relative flex flex-col items-center justify-center">
-          <div
-            className="absolute inset-0 z-5 h-[25px] w-full lg:h-[150px]"
-            style={{
-              background:
-                'linear-gradient(180deg, rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 0) 100%)',
-            }}
+        <CTAButton cta={historyData?.cta} style="max-w-[250px]" />
+        <div className="relative mt-16">
+          {/* Single timeline for all cards */}
+          <Timeline
+            totalItems={historyData?.historyItems?.length || 0}
+            scrollProgress={scrollProgress}
+            isDesktop={isDesktop}
+            desktopCircleFromTop={desktopCircleFromTop}
+            mobileCircleFromTop={mobileCircleFromTop}
+            desktopCardHeight={desktopCardHeight}
+            mobileCardHeight={mobileCardHeight}
           />
-          {historyData?.historyItems?.map((historyItem: any, index: number) => (
-            <HistoryCard
-              key={index}
-              historyItem={historyItem}
-              index={index}
-              totalItems={historyData.historyItems.length}
-              scrollProgress={scrollProgress}
-            />
-          ))}
+
+          {/* History cards */}
+          <div ref={containerRef} className="relative">
+            {historyData?.historyItems?.map((item: any, index: number) => (
+              <HistoryCard
+                key={index}
+                historyItem={item}
+                index={index}
+                totalItems={historyData?.historyItems?.length || 0}
+                scrollProgress={scrollProgress}
+                cardHeightClass={cardHeightClass}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

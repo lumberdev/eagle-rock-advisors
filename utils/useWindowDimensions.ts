@@ -1,9 +1,16 @@
 import { useState, useEffect } from 'react';
 
-function useWindowDimensions() {
-  const [windowDimensions, setWindowDimensions] = useState({
+interface WindowDimensions {
+  width: number;
+  height: number;
+  isDesktop: boolean;
+}
+
+function useWindowDimensions(): WindowDimensions {
+  const [windowDimensions, setWindowDimensions] = useState<WindowDimensions>({
     width: 0,
     height: 0,
+    isDesktop: false,
   });
 
   useEffect(() => {
@@ -13,6 +20,7 @@ function useWindowDimensions() {
         setWindowDimensions({
           width: window.innerWidth,
           height: window.innerHeight,
+          isDesktop: window.innerWidth >= 1024,
         });
       };
 

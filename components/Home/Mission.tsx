@@ -9,7 +9,7 @@ const Mission = ({ missionData }: { missionData: any }) => {
         <div className="absolute z-0 aspect-[1/1] w-full max-w-[21.87rem] lg:max-w-[36rem]">
           <Image src={missionData?.image} alt="Mission" fill className="z-0 object-contain" />
         </div>
-        <h4 className="text-eagle-navy font-dreaming mb-[3.125rem] max-w-[23ch] text-center text-[28px] leading-[140%] tracking-[0] lg:max-w-[45ch] lg:text-[38px]">
+        <h4 className="text-eagle-navy font-dreaming mb-[3.125rem] max-w-[25ch] text-center text-[24px] leading-[140%] tracking-[0] lg:text-[48px]">
           {missionData?.description}
         </h4>
         <CTAButton cta={missionData?.cta} />
