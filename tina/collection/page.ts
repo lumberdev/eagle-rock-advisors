@@ -21,6 +21,7 @@ const Page: Collection = {
       isTitle: true,
       required: true,
     },
+    // ===== HERO SECTION =====
     {
       type: 'object',
       name: 'hero',
@@ -85,6 +86,7 @@ const Page: Collection = {
         },
       ],
     },
+    // ===== ABOUT SECTION =====
     {
       type: 'object',
       name: 'about',
@@ -105,6 +107,70 @@ const Page: Collection = {
         },
       ],
     },
+    // ===== WHAT WE DO SECTION =====
+    {
+      type: 'object',
+      name: 'whatWeDo',
+      label: 'What We Do Section',
+      fields: [
+        {
+          type: 'object',
+          name: 'whatWeDoItems',
+          label: 'What We Do Items',
+          list: true,
+          ui: {
+            itemProps: (item) => {
+              return { label: item?.title };
+            },
+          },
+          fields: [
+            {
+              type: 'string',
+              name: 'title',
+              label: 'Title',
+            },
+            {
+              type: 'image',
+              name: 'iconImage',
+              label: 'Icon Image',
+            },
+          ],
+        },
+      ],
+    },
+    // ===== EXPERIENCE SECTION =====
+    {
+      type: 'object',
+      name: 'experience',
+      label: 'Experience Section',
+      fields: [
+        {
+          type: 'image',
+          name: 'videoFile',
+          label: 'Background Video',
+          description: 'Local video file for hero background (MP4 format recommended)',
+        },
+        {
+          type: 'string',
+          name: 'heading',
+          label: 'Heading',
+        },
+        {
+          type: 'string',
+          name: 'subheading',
+          label: 'Subheading',
+        },
+        {
+          type: 'string',
+          name: 'description',
+          label: 'Description',
+          ui: {
+            component: 'textarea',
+          },
+        },
+      ],
+    },
+    // ===== STATS SECTION =====
     {
       type: 'object',
       name: 'stats',
@@ -135,20 +201,16 @@ const Page: Collection = {
         },
       ],
     },
+    // ===== INVESTMENT APPROACH SECTION =====
     {
       type: 'object',
-      name: 'experience',
-      label: 'Experience Section',
+      name: 'investmentApproch',
+      label: 'Investment Approach Section',
       fields: [
         {
           type: 'image',
           name: 'image',
-          label: 'Image',
-        },
-        {
-          type: 'image',
-          name: 'secondImage',
-          label: 'Second Image',
+          label: 'Map Image',
         },
         {
           type: 'string',
@@ -157,19 +219,138 @@ const Page: Collection = {
         },
         {
           type: 'string',
-          name: 'subheading',
-          label: 'Subheading',
+          name: 'subHeading',
+          label: 'Sub Heading',
         },
         {
-          type: 'string',
-          name: 'description',
-          label: 'Description',
-          ui: {
-            component: 'textarea',
-          },
+          type: 'object',
+          name: 'cta',
+          label: 'Call to Action',
+          fields: [
+            {
+              type: 'string',
+              name: 'text',
+              label: 'Button Text',
+            },
+            {
+              type: 'string',
+              name: 'link',
+              label: 'Button Link',
+            },
+          ],
         },
       ],
     },
+    // ===== INVESTMENT CARDS SECTION =====
+    {
+      type: 'object',
+      name: 'investmentCards',
+      label: 'Investment Cards Section',
+      fields: [
+        {
+          type: 'object',
+          name: 'investmentCardsItems',
+          label: 'Investment Cards Items',
+          list: true,
+          ui: {
+            itemProps: (item) => {
+              return { label: item?.heading };
+            },
+          },
+          fields: [
+            {
+              type: 'string',
+              name: 'heading',
+              label: 'Heading',
+            },
+            {
+              type: 'string',
+              name: 'subHeading',
+              label: 'Sub Heading',
+            },
+            {
+              type: 'string',
+              name: 'backgroundColor',
+              label: 'Background Color',
+            },
+            {
+              type: 'string',
+              name: 'textColor',
+              label: 'Text Color',
+            },
+          ],
+        },
+      ],
+    },
+    // ===== HISTORY SECTION =====
+    {
+      type: 'object',
+      name: 'history',
+      label: 'History Section',
+      fields: [
+        {
+          type: 'string',
+          name: 'heading',
+          label: 'Heading',
+        },
+        {
+          type: 'string',
+          name: 'subHeading',
+          label: 'Sub Heading',
+        },
+        {
+          type: 'object',
+          name: 'cta',
+          label: 'Call to Action',
+          fields: [
+            {
+              type: 'string',
+              name: 'text',
+              label: 'Button Text',
+            },
+            {
+              type: 'string',
+              name: 'link',
+              label: 'Button Link',
+            },
+          ],
+        },
+        {
+          type: 'object',
+          name: 'historyItems',
+          label: 'History Items',
+          list: true,
+          ui: {
+            itemProps: (item) => {
+              return { label: item?.year };
+            },
+          },
+          fields: [
+            {
+              type: 'string',
+              name: 'year',
+              label: 'Year',
+            },
+            {
+              type: 'string',
+              name: 'subHeading',
+              label: 'SubHeading',
+            },
+            {
+              type: 'string',
+              name: 'equity',
+              label: 'Equity',
+            },
+            {
+              type: 'string',
+              name: 'operatingIn',
+              label: 'Operating In',
+            },
+          ],
+        },
+      ],
+    },
+    // ===== MISSION SECTION =====
     {
       type: 'object',
       name: 'mission',
@@ -218,257 +399,14 @@ const Page: Collection = {
         },
       ],
     },
-    {
-      type: 'object',
-      name: 'communities',
-      label: 'Communities Section',
-      fields: [
-        {
-          type: 'string',
-          name: 'heading',
-          label: 'Heading',
-        },
-        {
-          type: 'string',
-          name: 'subheading',
-          label: 'Subheading',
-        },
-        {
-          type: 'object',
-          name: 'cta',
-          label: 'Call to Action',
-          fields: [
-            {
-              type: 'string',
-              name: 'text',
-              label: 'Button Text',
-            },
-            {
-              type: 'string',
-              name: 'link',
-              label: 'Button Link',
-            },
-          ],
-        },
-        {
-          type: 'object',
-          name: 'carouselItems',
-          label: 'Carousel Items',
-          list: true,
-          ui: {
-            itemProps: (item) => ({
-              label: item?.heading || `Carousel Item ${(item?._values?.index || 0) + 1}`,
-            }),
-          },
-          fields: [
-            {
-              type: 'string',
-              name: 'heading',
-              label: 'Heading',
-              description: 'Optional heading for this carousel item',
-            },
-            {
-              type: 'image',
-              name: 'colorImage',
-              label: 'Color Image',
-              required: true,
-            },
-            {
-              type: 'image',
-              name: 'monochromeImage',
-              label: 'Monochrome Image',
-              required: true,
-            },
-          ],
-        },
-      ],
-    },
-    {
-      type: 'object',
-      name: 'expertise',
-      label: 'Expertise Section',
-      fields: [
-        {
-          type: 'string',
-          name: 'heading',
-          label: 'Heading',
-        },
-        {
-          type: 'object',
-          name: 'accordionItems',
-          label: 'Accordion Items',
-          list: true,
-          ui: {
-            itemProps: (item) => {
-              return { label: item?.heading };
-            },
-          },
-          fields: [
-            {
-              type: 'string',
-              name: 'heading',
-              label: 'Heading',
-            },
-            {
-              type: 'string',
-              name: 'subheading',
-              label: 'Subheading',
-              ui: {
-                component: 'textarea',
-              },
-            },
-          ],
-        },
-      ],
-    },
-    {
-      type: 'object',
-      name: 'teamSection',
-      label: 'Team Section',
-      fields: [
-        {
-          type: 'string',
-          name: 'overline',
-          label: 'Overline',
-        },
-        {
-          type: 'string',
-          name: 'heading',
-          label: 'Heading',
-        },
-        {
-          type: 'string',
-          name: 'subheading',
-          label: 'Subheading',
-          ui: {
-            component: 'textarea',
-          },
-        },
-        {
-          type: 'object',
-          name: 'teamMembers',
-          label: 'Team Members',
-          list: true,
-          ui: {
-            itemProps: (item) => ({
-              label: item?.name || 'New Team Member',
-            }),
-          },
-          fields: [
-            {
-              type: 'image',
-              name: 'image',
-              label: 'Profile Image',
-            },
-            {
-              type: 'string',
-              name: 'name',
-              label: 'Full Name',
-            },
-            {
-              type: 'string',
-              name: 'title',
-              label: 'Job Title',
-            },
-            {
-              type: 'string',
-              name: 'company',
-              label: 'Company',
-            },
-            {
-              type: 'string',
-              name: 'bio',
-              label: 'Bio',
-              ui: {
-                component: 'textarea',
-              },
-            },
-            {
-              type: 'string',
-              name: 'linkedin',
-              label: 'LinkedIn URL',
-            },
-          ],
-        },
-      ],
-    },
-    {
-      type: 'object',
-      name: 'managementTeamSection',
-      label: 'Management Team Section',
-      fields: [
-        {
-          type: 'string',
-          name: 'overline',
-          label: 'Overline',
-        },
-        {
-          type: 'string',
-          name: 'heading',
-          label: 'Heading',
-        },
-        {
-          type: 'string',
-          name: 'subheading',
-          label: 'Subheading',
-          ui: {
-            component: 'textarea',
-          },
-        },
-        {
-          type: 'object',
-          name: 'teamMembers',
-          label: 'Management Team Members',
-          list: true,
-          ui: {
-            itemProps: (item) => ({
-              label: item?.name || 'New Management Team Member',
-            }),
-          },
-          fields: [
-            {
-              type: 'image',
-              name: 'image',
-              label: 'Profile Image',
-            },
-            {
-              type: 'string',
-              name: 'name',
-              label: 'Full Name',
-            },
-            {
-              type: 'string',
-              name: 'title',
-              label: 'Job Title',
-            },
-            {
-              type: 'string',
-              name: 'company',
-              label: 'Company',
-            },
-            {
-              type: 'string',
-              name: 'bio',
-              label: 'Bio',
-              ui: {
-                component: 'textarea',
-              },
-            },
-            {
-              type: 'string',
-              name: 'linkedin',
-              label: 'LinkedIn URL',
-            },
-          ],
-        },
-      ],
-    },
+    // ===== BODY SECTION =====
     {
       type: 'rich-text',
       name: 'body',
       label: 'Body Content',
       isBody: true,
     },
+    // ===== SEO SECTION =====
     {
       type: 'object',
       name: 'seo',

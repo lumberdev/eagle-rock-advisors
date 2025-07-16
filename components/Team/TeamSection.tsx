@@ -22,7 +22,7 @@ const TeamSection = ({
         </>
       )}
       {/* Content */}
-      <div className="relative z-10 flex h-full flex-col">
+      <div className="relative flex h-full flex-col">
         <h6 className="text-steel-blue font-monaSans mb-[10px] text-sm leading-[140%] tracking-[1.6px] uppercase lg:text-base">
           {teamSection.overline}
         </h6>

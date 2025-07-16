@@ -5,18 +5,16 @@ import Link from 'next/link';
 const CTAButton = ({
   cta,
   color = 'white',
-  bgColor = '',
   style = '',
 }: {
   cta: any;
   color?: string;
-  bgColor?: string;
   style?: string;
 }) => {
   return (
     <Link
-      className={`font-monaSans uppercase bg-${bgColor} text-${color} border-[1px] text-[14px] leading-[140%] lg:text-[16px] border-${color} z-10 flex items-center justify-center py-[25px] pr-[20px] pr-[25px] pl-[30px] tracking-[2px] ${style}`}
-      href={cta?.link}
+      className={`font-monaSans text-eagle-navy border-eagle-navy hover:bg-eagle-navy z-10 flex items-center justify-center border-[1px] py-[25px] pr-[20px] pr-[25px] pl-[30px] text-[14px] leading-[140%] tracking-[2px] uppercase transition-all duration-300 hover:text-white lg:text-[16px] ${style}`}
+      href={cta?.link || '/'}
     >
       {cta?.text}
       <Arrow alt="Arrow" className={`fill-${color}`} />

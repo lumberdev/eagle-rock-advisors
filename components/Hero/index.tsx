@@ -12,7 +12,7 @@ const Hero = ({
 
   return (
     <section
-      className={`relative flex h-screen max-h-[600px] w-screen items-end justify-start text-center md:max-h-[780px] ${heroContainerStyles}`}
+      className={`relative flex h-screen max-h-[600px] w-full items-end justify-start text-center md:max-h-[780px] ${heroContainerStyles}`}
     >
       {videoFile ? (
         <video

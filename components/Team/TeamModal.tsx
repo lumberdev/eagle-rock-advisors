@@ -35,7 +35,7 @@ const TeamModal: React.FC<TeamModalProps> = ({ teamMember, onClose }) => {
 
   return (
     <div
-      className="text-eagle-navy fixed inset-0 z-50 flex items-center justify-center p-4"
+      className="text-eagle-navy fixed inset-0 z-100 flex items-center justify-center p-4"
       onClick={handleBackdropClick}
     >
       <div className="absolute inset-0 bg-[#000000BF] backdrop-blur-[25px]" />
@@ -43,27 +43,27 @@ const TeamModal: React.FC<TeamModalProps> = ({ teamMember, onClose }) => {
       {/* Modal Content */}
       <div
         ref={modalRef}
-        className="relative z-10 h-[90vh] max-h-[600px] w-full max-w-[1050px] bg-white"
+        className="relative z-10 h-[80vh] max-h-[80vh] w-full max-w-[1050px] bg-white lg:max-h-[600px]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
-          className="absolute top-[-65px] right-0 flex cursor-pointer items-center justify-center border-1 border-white p-[15px]"
+          className="absolute top-[-65px] right-0 z-[150] flex cursor-pointer items-center justify-center border-1 border-white p-[15px]"
           onClick={() => onClose()}
         >
           <Close className="stroke-white" />
         </button>
 
         {/* Modal Body */}
-        <div className="flex h-full items-center">
+        <div className="flex h-full flex-col items-center lg:flex-row">
           <Image
             src={teamMember?.image || '/images/Team_No_Image.png'}
             alt={teamMember?.name || 'Photo Coming Soon'}
             width={800}
             height={800}
-            className="h-full w-full max-w-[375px] object-cover"
+            className="max-h-[40vh] w-full object-cover object-top lg:h-full lg:max-h-full lg:max-w-[375px]"
           />
-          <div className="relative flex h-full w-full flex-col">
+          <div className="relative flex min-h-[350px] w-full flex-col lg:h-full">
             <div
               className={`no-scrollbar ${teamMember.bio ? '' : 'pb-[50px]'} flex h-full flex-col justify-between overflow-y-auto px-[50px] pt-[50px]`}
             >
