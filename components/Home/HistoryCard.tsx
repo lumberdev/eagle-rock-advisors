@@ -8,20 +8,17 @@ interface HistoryCardProps {
     operatingIn: string;
   };
   index: number;
-  totalItems: number;
-  scrollProgress: number;
   cardHeightClass: string;
+  filledItemIndex: number;
 }
 
 const HistoryCard: React.FC<HistoryCardProps> = ({
   historyItem,
   index,
-  totalItems,
-  scrollProgress,
   cardHeightClass,
+  filledItemIndex,
 }) => {
-  const isActive = scrollProgress >= index / totalItems;
-
+  const isActive = index <= filledItemIndex;
   return (
     <div
       className={`relative flex w-full flex-col items-center gap-y-[25px] ${cardHeightClass} lg:flex-row lg:justify-between lg:gap-y-0`}

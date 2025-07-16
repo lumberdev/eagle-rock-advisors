@@ -4,6 +4,7 @@ interface TimelineProps {
   totalItems: number;
   scrollProgress: number; // 0 to 1
   isDesktop: boolean;
+  filledItemIndex: number;
   desktopCardHeight: number;
   mobileCardHeight: number;
   desktopCircleFromTop: number;
@@ -14,6 +15,7 @@ const Timeline: React.FC<TimelineProps> = ({
   totalItems,
   scrollProgress,
   isDesktop,
+  filledItemIndex,
   desktopCardHeight,
   mobileCardHeight,
   desktopCircleFromTop,
@@ -21,12 +23,6 @@ const Timeline: React.FC<TimelineProps> = ({
 }) => {
   const lineFillPercentage = scrollProgress * 100;
 
-  const filledItemIndex = Math.min(
-    scrollProgress * totalItems - (isDesktop ? 0.5 : 0.1333),
-    totalItems - 1
-  );
-
-  console.log(lineFillPercentage, scrollProgress);
   return (
     <div
       className={`absolute top-0 h-full w-[1px] ${isDesktop ? 'left-1/2 -translate-x-1/2' : 'left-[6px]'} bg-[#E5E5E5]`}

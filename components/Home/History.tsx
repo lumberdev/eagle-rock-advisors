@@ -47,6 +47,12 @@ const History = ({ historyData }: { historyData: any }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const totalItems = historyData?.historyItems?.length || 0;
+  const filledItemIndex = Math.min(
+    scrollProgress * totalItems - (isDesktop ? 0.5 : 0.1333),
+    totalItems - 1
+  );
+
   return (
     <section className="relative py-20">
       <div className="relative flex w-full flex-col items-center justify-center gap-y-[25px] px-[25px] md:px-[100px] lg:gap-y-[50px]">
@@ -60,7 +66,8 @@ const History = ({ historyData }: { historyData: any }) => {
         <div className="relative mt-16">
           {/* Single timeline for all cards */}
           <Timeline
-            totalItems={historyData?.historyItems?.length || 0}
+            totalItems={totalItems}
+            filledItemIndex={filledItemIndex}
             scrollProgress={scrollProgress}
             isDesktop={isDesktop}
             desktopCircleFromTop={desktopCircleFromTop}
@@ -76,9 +83,8 @@ const History = ({ historyData }: { historyData: any }) => {
                 key={index}
                 historyItem={item}
                 index={index}
-                totalItems={historyData?.historyItems?.length || 0}
-                scrollProgress={scrollProgress}
                 cardHeightClass={cardHeightClass}
+                filledItemIndex={filledItemIndex}
               />
             ))}
           </div>
