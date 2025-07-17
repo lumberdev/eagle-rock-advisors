@@ -16,7 +16,7 @@ const InvestmentApproch = ({ investmentApprochData }: { investmentApprochData: a
           width={100}
           height={100}
         />
-        <h3 className="font-dreaming text-eagle-navy text-center text-[28px] leading-[140%] tracking-[0] lg:max-w-[52ch]">
+        <h3 className="font-makarony text-eagle-navy text-center text-[28px] leading-[140%] tracking-[0] lg:max-w-[52ch]">
           {investmentApprochData?.subHeading}
         </h3>
         <CTAButton cta={investmentApprochData?.cta} />

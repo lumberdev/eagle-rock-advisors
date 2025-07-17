@@ -65,7 +65,7 @@ const GoogleMapLoader = () => {
         mapContainerStyle={containerStyle}
         center={center}
         zoom={13}
-        mapContainerClassName="h-full w-full !min-h-[680px]"
+        mapContainerClassName="h-full w-full lg:!min-h-[680px]"
         options={{
           styles: [
             ...monotoneStyle,

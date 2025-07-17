@@ -10,7 +10,7 @@ const NavSubLinks = ({
   onLinkClick?: () => void;
 }) => {
   return (
-    <div className="font-dreaming text-frosted-white px-[25px] lg:px-[50px]">
+    <div className="font-makarony text-frosted-white px-[25px] lg:px-[50px]">
       <nav className="flex flex-col items-center justify-center gap-[10px] opacity-50 lg:flex-row lg:gap-[50px]">
         {subLinks?.map((subLink, index) => (
           <Link

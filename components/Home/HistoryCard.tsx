@@ -28,7 +28,7 @@ const HistoryCard: React.FC<HistoryCardProps> = ({
           isActive ? 'opacity-100' : 'opacity-50'
         }`}
       >
-        <h4 className="font-dreaming text-champagne-gold text-[38px] font-normal lg:text-center lg:text-[5.25rem]">
+        <h4 className="font-makarony text-champagne-gold text-[38px] font-normal lg:text-center lg:text-[5.25rem]">
           {historyItem?.year}
         </h4>
       </div>
@@ -37,7 +37,7 @@ const HistoryCard: React.FC<HistoryCardProps> = ({
           isActive ? 'opacity-100' : 'opacity-50'
         }`}
       >
-        <p className="font-dreaming text-eagle-navy text-[21px] leading-[140%] lg:text-[24px]">
+        <p className="font-makarony text-eagle-navy text-[21px] leading-[140%] lg:text-[24px]">
           {historyItem?.subHeading}
         </p>
         {historyItem?.equity && (

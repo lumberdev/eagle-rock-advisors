@@ -23,7 +23,7 @@ export function Footer({ data }: FooterProps) {
             height={100}
           />
         )}
-        <div className="font-dreaming order-1 flex w-full flex-col items-start justify-between gap-[25px] lg:order-2 lg:flex-row lg:items-center">
+        <div className="font-makarony order-1 flex w-full flex-col items-start justify-between gap-[25px] lg:order-2 lg:flex-row lg:items-center">
           {data.links?.map((link, index) => (
             <Link key={index} href={link?.href || '#'} className="text-[22px] text-white">
               {link?.label}

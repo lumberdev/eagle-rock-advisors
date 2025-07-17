@@ -28,15 +28,15 @@ export const monaSans = localFont({
   display: 'swap',
 });
 
-// Load Dreaming font
-export const dreaming = localFont({
+// Load Makarony font
+export const makarony = localFont({
   src: [
     {
-      path: './Dreaming/Dreaming-Regular.woff2',
+      path: './Makarony/Makarony-Regular.ttf',
       weight: '400',
       style: 'normal',
     },
   ],
-  variable: '--font-dreaming',
+  variable: '--font-makarony',
   display: 'swap',
 });

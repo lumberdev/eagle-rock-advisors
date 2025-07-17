@@ -13,7 +13,7 @@
   --font-monaSans:
     monaSans, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     'Helvetica Neue', Arial, sans-serif;
-  --font-dreaming: 'dreaming', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-makarony: 'makarony', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
 
   /* ===== Colors ===== */
   /* Brand Colors */
@@ -115,7 +115,7 @@
   :root {
     /* Apply font variables */
     --font-mona-sans: var(--font-mona-sans);
-    --font-dreaming: var(--font-dreaming);
+    --font-makarony: var(--font-makarony);
 
     /* Default text color */
     color: var(--color-gray-900);
@@ -147,7 +147,7 @@
   h4,
   h5,
   h6 {
-    font-family: var(--font-dreaming);
+    font-family: var(--font-makarony);
     font-weight: 400;
     letter-spacing: 0;
     color: var(--color-white);

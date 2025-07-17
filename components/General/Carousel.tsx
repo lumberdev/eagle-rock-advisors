@@ -79,7 +79,7 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
             >
               <h6
                 className={clsx(
-                  'font-dreaming absolute bottom-0 z-10 w-full text-white',
+                  'font-makarony absolute bottom-0 z-10 w-full text-white',
                   'from-eagle-navy bg-gradient-to-t to-transparent',
                   'mt-10 mb-0 pt-[25px] pb-2.5',
                   'px-[10px] text-base leading-[160%] lg:px-[25px] lg:text-[38px]',

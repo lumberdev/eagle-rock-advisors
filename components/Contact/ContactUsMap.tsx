@@ -4,10 +4,10 @@ import GoogleMapLoader from './GoogleMapLoader';
 
 const ContactUsMap = () => {
   return (
-    <div className="relative h-1/2 min-h-[680px] w-full lg:h-full lg:min-h-auto lg:w-1/2">
+    <div className="relative order-2 aspect-[1/1] w-full lg:order-1 lg:aspect-auto lg:h-1/2 lg:h-full lg:min-h-[680px] lg:min-h-auto lg:w-1/2">
       <GoogleMapLoader />
       <div className="bg-frosted-white absolute right-0 bottom-0 left-0 m-[25px] p-[25px]">
-        <div className="font-dreaming text-eagle-navy flex items-center space-x-2 text-[22px]">
+        <div className="font-makarony text-eagle-navy flex max-w-[20ch] items-center space-x-2 text-[22px] lg:max-w-full">
           <div className="font-medium">125 Park Avenue, New York, NY 10017 7th Floor</div>
         </div>
       </div>

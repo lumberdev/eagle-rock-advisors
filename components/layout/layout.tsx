@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 import { Header } from './header';
 import { Footer } from './footer';
-import { dreaming, monaSans } from '@/assets/fonts/fonts';
+import { makarony, monaSans } from '@/assets/fonts/fonts';
 import client from '@/tina/__generated__/client';
 import { NavigationQuery, NavigationQueryVariables } from '@/tina/__generated__/types';
 
@@ -42,7 +42,7 @@ export default async function Layout({
   const footerData = navigationData?.navigation?.footer;
 
   return (
-    <div className={`${dreaming.variable} ${monaSans.variable}`}>
+    <div className={`${makarony.variable} ${monaSans.variable}`}>
       <Header data={headerData} headerClassName={headerClassName} lightNavbar={lightNavbar} />
       <main>{children}</main>
       <Footer data={footerData} />

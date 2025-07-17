@@ -40,7 +40,7 @@ export default function ContactUsPage({ query, variables, data }: ContactUsPageP
     <Suspense fallback={<LoadingFallback />}>
       <div className="font-monaSans flex flex-col items-center justify-center">
         <Hero heroData={pageData.hero} heroContainerStyles="max-h-[300px] md:max-h-[500px]" />
-        <div className="flex w-screen flex-col items-center justify-center gap-[25px] px-[25px] py-[50px] lg:flex-row lg:gap-[50px]">
+        <div className="flex w-screen flex-col items-center justify-center gap-[25px] px-[25px] py-[50px] lg:max-w-[1440px] lg:flex-row lg:gap-[50px]">
           <ContactUsMap />
           <ContactUsForm />
         </div>

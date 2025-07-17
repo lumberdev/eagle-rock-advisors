@@ -35,7 +35,7 @@ const TeamMemberCard = ({
       />
       <div className="flex w-full flex-col items-start justify-start">
         <h6
-          className={`mb-[10px] text-[16px] leading-[140%] uppercase lg:text-[28px] ${isInvestmentTeam ? 'text-eagle-navy' : 'text-white'}`}
+          className={`mb-[10px] text-[16px] leading-[140%] uppercase lg:text-[24px] ${isInvestmentTeam ? 'text-eagle-navy' : 'text-white'}`}
         >
           {teamMember.name}
         </h6>

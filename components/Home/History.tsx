@@ -59,7 +59,7 @@ const History = ({ historyData }: { historyData: any }) => {
         <h6 className="font-monaSans text-slate text-[14px] leading-[140%] tracking-[1.6px] uppercase opacity-50 lg:self-start lg:text-[1rem]">
           {historyData?.heading}
         </h6>
-        <h4 className="font-dreaming text-eagle-navy max-w-[30ch] text-center text-[28px] leading-[140%] tracking-[0] lg:text-[48px]">
+        <h4 className="font-makarony text-eagle-navy max-w-[30ch] text-center text-[28px] leading-[140%] tracking-[0] lg:text-[48px]">
           {historyData?.subHeading}
         </h4>
         <CTAButton cta={historyData?.cta} style="max-w-[250px]" />

@@ -19,7 +19,7 @@ const NavLinks = ({
           className="group flex items-center gap-2 lg:ml-[50px]"
           onClick={onLinkClick}
         >
-          <span className="font-dreaming text-[38px] leading-[140%] text-white transition-all duration-300 lg:text-[68px]">
+          <span className="font-makarony text-[38px] leading-[140%] text-white transition-all duration-300 lg:text-[68px]">
             {link?.label}
           </span>
           <div

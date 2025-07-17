@@ -15,12 +15,12 @@ const Stats = ({ data }: { data: any }) => {
         >
           {item?.iconImage && <Image src={item?.iconImage} alt="Icon" width={72} height={72} />}
           {item?.title && (
-            <p className="text-steel-blue font-dreaming mt-[25px] w-full text-center text-[24px] md:text-[1.375rem] lg:max-w-[12ch]">
+            <p className="text-steel-blue font-makarony mt-[25px] w-full text-center text-[24px] md:text-[1.375rem] lg:max-w-[12ch]">
               {item?.title}
             </p>
           )}
           {item?.heading && (
-            <h4 className="font-dreaming text-champagne-gold text-center text-[68px] leading-[120%] tracking-[0] lg:text-[128px]">
+            <h4 className="font-makarony text-champagne-gold text-center text-[68px] leading-[120%] tracking-[0] lg:text-[128px]">
               {item?.heading}
             </h4>
           )}

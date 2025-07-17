@@ -13,7 +13,7 @@ const TeamSection = ({
 }) => {
   return (
     <div
-      className={`relative min-h-screen w-full px-[25px] pb-[50px] lg:px-[50px] ${containerStyles} ${isInvestmentTeam ? 'bg-white' : 'bg-steel-blue'}`}
+      className={`relative min-h-screen w-full px-[25px] pb-[50px] lg:px-[50px] ${containerStyles} ${isInvestmentTeam ? 'bg-white' : 'bg-slate'}`}
     >
       {!isInvestmentTeam && (
         <>
@@ -23,13 +23,13 @@ const TeamSection = ({
       )}
       {/* Content */}
       <div className="relative flex h-full flex-col">
-        <h6 className="text-steel-blue font-monaSans mb-[10px] text-sm leading-[140%] tracking-[1.6px] uppercase lg:text-base">
+        <h6 className="text-slate font-monaSans mb-[10px] text-sm leading-[140%] tracking-[1.6px] uppercase opacity-50 lg:text-base">
           {teamSection.overline}
         </h6>
-        <h1 className="text-eagle-navy text-[28px] leading-[140%] lg:text-[68px] lg:leading-[120%]">
+        <h1 className="text-eagle-navy text-[32px] leading-[140%] lg:text-[48px] lg:leading-[120%]">
           {teamSection.heading}
         </h1>
-        <div className="mt-[100px] flex items-center justify-center">
+        <div className="mt-[25px] flex items-center justify-center md:mt-[100px]">
           <div className="flex w-full max-w-[1050px] flex-wrap justify-between gap-x-[25px] gap-y-[50px] md:justify-center lg:gap-[min(50px,5vw)]">
             {teamSection?.teamMembers?.map((teamMember: any, index: number) => (
               <TeamMemberCard

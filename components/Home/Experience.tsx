@@ -29,7 +29,7 @@ const Experience = ({ experienceData }: { experienceData: ExperienceData }) => {
         {/* Content */}
         <div className="relative z-10 container mx-auto flex h-full items-center justify-center px-4 text-white">
           <div className="flex h-full w-full flex-col items-center justify-center text-center">
-            <h2 className="font-dreaming mx-auto max-w-[35ch] text-[1.75rem] leading-[160%] font-normal md:max-w-[55ch] md:text-[36px]">
+            <h2 className="font-makarony mx-auto max-w-[35ch] text-[1.75rem] leading-[160%] font-normal md:max-w-[55ch] md:text-[36px]">
               {experienceData.description}
             </h2>
           </div>
