@@ -44,19 +44,19 @@ export default function HomePage({ query, variables, data }: HomePageProps) {
   return (
     <Suspense fallback={<LoadingFallback />}>
       <div>
-        {pageData.hero && <Hero heroData={pageData.hero} />}
-        {pageData.about && <AboutSection aboutData={pageData.about} />}
+        {pageData?.hero && <Hero heroData={pageData.hero} />}
+        {pageData?.about && <AboutSection aboutData={pageData.about} />}
         {pageData?.whatWeDo?.whatWeDoItems && <Stats data={pageData.whatWeDo.whatWeDoItems} />}
-        {pageData.experience && <Experience experienceData={pageData.experience} />}
+        {pageData?.experience && <Experience experienceData={pageData.experience} />}
         {pageData?.stats?.statItems && <Stats data={pageData.stats.statItems} />}
-        {pageData.investmentApproch && (
+        {pageData?.investmentApproch && (
           <InvestmentApproch investmentApprochData={pageData.investmentApproch} />
         )}
-        {pageData.investmentCards?.investmentCardsItems && (
+        {pageData?.investmentCards?.investmentCardsItems && (
           <InvestmentCards investmentCardsData={pageData.investmentCards} />
         )}
-        {pageData.history && <History historyData={pageData.history} />}
-        {pageData.mission && <Mission missionData={pageData.mission} />}
+        {pageData?.history && <History historyData={pageData.history} />}
+        {pageData?.mission && <Mission missionData={pageData.mission} />}
       </div>
     </Suspense>
   );
