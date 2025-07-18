@@ -6,7 +6,7 @@ import { navigation } from './collections/navigation';
 
 const config = defineConfig({
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID!,
-  branch: process.env.VERCEL_GIT_COMMIT_REF || 'dev',
+  branch: 'dev',
   token: process.env.TINA_TOKEN!,
   media: {
     tina: {
