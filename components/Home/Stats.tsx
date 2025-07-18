@@ -1,7 +1,18 @@
 import Image from 'next/image';
 import React from 'react';
 
-const Stats = ({ data }: { data: any }) => {
+type StatItem = {
+  title?: string | null;
+  iconImage?: string | null;
+  heading?: string | null;
+  subheading?: string | null;
+};
+
+interface StatsProps {
+  data?: (StatItem | null)[] | null;
+}
+
+const Stats = ({ data }: StatsProps) => {
   return (
     <div className="flex flex-col items-center px-[25px] py-[25px] lg:flex-row lg:justify-around lg:px-[50px] lg:py-[6.25rem]">
       {data?.map((item: any, index: number) => (

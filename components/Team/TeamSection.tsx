@@ -1,5 +1,5 @@
 import React from 'react';
-import { PageTeamSection } from '@/tina/__generated__/types';
+import { PageTeamSection, PageManagementTeamSection } from '@/tina/__generated__/types';
 import TeamMemberCard from './TeamMemberCard';
 
 const TeamSection = ({
@@ -7,7 +7,7 @@ const TeamSection = ({
   isInvestmentTeam = false,
   containerStyles = '',
 }: {
-  teamSection: PageTeamSection;
+  teamSection: PageTeamSection | PageManagementTeamSection;
   isInvestmentTeam?: boolean;
   containerStyles?: string;
 }) => {

@@ -1,14 +1,15 @@
 import Image from 'next/image';
 import React from 'react';
+import { PageHero } from '@/tina/__generated__/types';
 
 const Hero = ({
   heroData,
   heroContainerStyles = '',
 }: {
-  heroData: any;
+  heroData: PageHero;
   heroContainerStyles?: string;
 }) => {
-  const { backgroundImage, backgroundImageMobile, videoFile, heading, subheading, cta } = heroData;
+  const { backgroundImage, backgroundImageMobile, videoFile, heading } = heroData;
 
   return (
     <section

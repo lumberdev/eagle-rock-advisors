@@ -3,6 +3,7 @@ import CTAButton from '../General/CTAButton';
 import HistoryCard from './HistoryCard';
 import Timeline from './Timeline';
 import useWindowDimensions from '@/utils/useWindowDimensions';
+import { PageHistory } from '@/tina/__generated__/types';
 
 const mobileCardHeight = 300;
 const desktopCardHeight = 450;
@@ -10,7 +11,7 @@ const cardHeightClass = 'min-h-[300px] h-[300px] lg:h-[450px]';
 const desktopCircleFromTop = desktopCardHeight / 2; // 225px
 const mobileCircleFromTop = 40; // 13.33% from the top to align with the year text
 
-const History = ({ historyData }: { historyData: any }) => {
+const History = ({ historyData }: { historyData: PageHistory }) => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
   const { isDesktop } = useWindowDimensions();

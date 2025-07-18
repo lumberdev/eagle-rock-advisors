@@ -1,11 +1,12 @@
 'use client';
 import { useTina } from 'tinacms/dist/react';
 import TeamSection from './TeamSection';
+import { PageQuery, PageQueryVariables } from '@/tina/__generated__/types';
 
 interface TeamPageProps {
   query: string;
-  variables: any;
-  data: any;
+  variables: PageQueryVariables;
+  data: PageQuery;
 }
 
 function LoadingFallback() {
@@ -35,12 +36,19 @@ export default function TeamPage({ query, variables, data }: TeamPageProps) {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
-      <TeamSection teamSection={pageData.teamSection} containerStyles="pt-[150px] lg:pt-[200px]" />
-      <TeamSection
-        teamSection={pageData.managementTeamSection}
-        containerStyles="pt-[100px]"
-        isInvestmentTeam={true}
-      />
+      {pageData?.teamSection && (
+        <TeamSection
+          teamSection={pageData?.teamSection}
+          containerStyles="pt-[150px] lg:pt-[200px]"
+        />
+      )}
+      {pageData?.managementTeamSection && (
+        <TeamSection
+          teamSection={pageData?.managementTeamSection}
+          containerStyles="pt-[100px]"
+          isInvestmentTeam={true}
+        />
+      )}
     </div>
   );
 }

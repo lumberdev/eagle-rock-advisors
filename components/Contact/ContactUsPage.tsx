@@ -4,11 +4,12 @@ import { Suspense } from 'react';
 import Hero from '../Hero';
 import ContactUsMap from './ContactUsMap';
 import ContactUsForm from './ContactUsForm';
+import { PageQuery, PageQueryVariables } from '@/tina/__generated__/types';
 
 interface ContactUsPageProps {
   query: string;
-  variables: any;
-  data: any;
+  variables: PageQueryVariables;
+  data: PageQuery;
 }
 
 function LoadingFallback() {

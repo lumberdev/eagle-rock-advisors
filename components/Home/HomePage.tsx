@@ -9,11 +9,12 @@ import Mission from './Mission';
 import InvestmentApproch from './InvestmentApproch';
 import InvestmentCards from './InvestmentCards';
 import History from './History';
+import { PageQuery, PageQueryVariables } from '@/tina/__generated__/types';
 
 interface HomePageProps {
   query: string;
-  variables: any;
-  data: any;
+  variables: PageQueryVariables;
+  data: PageQuery;
 }
 
 function LoadingFallback() {
@@ -28,31 +29,34 @@ function LoadingFallback() {
 }
 
 export default function HomePage({ query, variables, data }: HomePageProps) {
-  const { data: tinaData } = useTina({
+  const { data: tinaData } = useTina<PageQuery>({
     query,
     variables,
     data,
   });
 
-  if (!tinaData) {
+  if (!tinaData?.page) {
     return <LoadingFallback />;
   }
 
   const pageData = tinaData.page;
-  if (!pageData) return null;
 
   return (
     <Suspense fallback={<LoadingFallback />}>
       <div>
-        <Hero heroData={pageData.hero} />
-        <AboutSection aboutData={pageData.about} />
-        <Stats data={pageData.whatWeDo.whatWeDoItems} />
-        <Experience experienceData={pageData.experience} />
-        <Stats data={pageData.stats.statItems} />
-        <InvestmentApproch investmentApprochData={pageData.investmentApproch} />
-        <InvestmentCards investmentCardsData={pageData.investmentCards} />
-        <History historyData={pageData.history} />
-        <Mission missionData={pageData.mission} />
+        {pageData.hero && <Hero heroData={pageData.hero} />}
+        {pageData.about && <AboutSection aboutData={pageData.about} />}
+        {pageData?.whatWeDo?.whatWeDoItems && <Stats data={pageData.whatWeDo.whatWeDoItems} />}
+        {pageData.experience && <Experience experienceData={pageData.experience} />}
+        {pageData?.stats?.statItems && <Stats data={pageData.stats.statItems} />}
+        {pageData.investmentApproch && (
+          <InvestmentApproch investmentApprochData={pageData.investmentApproch} />
+        )}
+        {pageData.investmentCards?.investmentCardsItems && (
+          <InvestmentCards investmentCardsData={pageData.investmentCards} />
+        )}
+        {pageData.history && <History historyData={pageData.history} />}
+        {pageData.mission && <Mission missionData={pageData.mission} />}
       </div>
     </Suspense>
   );
