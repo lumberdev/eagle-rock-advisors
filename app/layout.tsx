@@ -5,7 +5,7 @@ import './styles.css';
 
 export const metadata: Metadata = {
   title: 'Eagle Rock Advisors',
-  description: 'Eagle Rock Advisors Website',
+  description: 'Eagle Rock Advisors',
 };
 
 export const viewport: Viewport = {
