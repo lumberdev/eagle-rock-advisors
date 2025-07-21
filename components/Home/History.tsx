@@ -86,6 +86,7 @@ const History = ({ historyData }: { historyData: PageHistory }) => {
                 index={index}
                 cardHeightClass={cardHeightClass}
                 filledItemIndex={filledItemIndex}
+                lastItem={index === totalItems - 1}
               />
             ))}
           </div>

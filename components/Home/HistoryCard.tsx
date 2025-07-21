@@ -10,6 +10,7 @@ interface HistoryCardProps {
   index: number;
   cardHeightClass: string;
   filledItemIndex: number;
+  lastItem: boolean;
 }
 
 const HistoryCard: React.FC<HistoryCardProps> = ({
@@ -17,6 +18,7 @@ const HistoryCard: React.FC<HistoryCardProps> = ({
   index,
   cardHeightClass,
   filledItemIndex,
+  lastItem,
 }) => {
   const isActive = index <= filledItemIndex;
   return (
@@ -42,12 +44,12 @@ const HistoryCard: React.FC<HistoryCardProps> = ({
         </p>
         {historyItem?.equity && (
           <p className="text-eagle-navy text-slate text-[16px] leading-[160%]">
-            Equity: {historyItem?.equity}
+            {lastItem && 'Target'} Equity: {historyItem?.equity}
           </p>
         )}
         {historyItem?.operatingIn && (
           <p className="text-eagle-navy text-slate text-[16px] leading-[160%]">
-            Operating In: {historyItem?.operatingIn}
+            {lastItem ? 'First Close:' : 'Operating In:'} {historyItem?.operatingIn}
           </p>
         )}
       </div>

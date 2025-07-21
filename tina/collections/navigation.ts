@@ -142,6 +142,12 @@ export const navigation: Collection = {
               label: 'URL',
               required: true,
             },
+            {
+              type: 'boolean',
+              name: 'isExternal',
+              label: 'External Link',
+              description: 'Check if this link is external & should open in a new tab',
+            },
           ],
         },
         {
@@ -166,6 +172,12 @@ export const navigation: Collection = {
               name: 'href',
               label: 'URL',
               required: true,
+            },
+            {
+              type: 'boolean',
+              name: 'isExternal',
+              label: 'External Link',
+              description: 'Check if this link is external & should open in a new tab',
             },
           ],
         },

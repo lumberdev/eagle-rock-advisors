@@ -54,12 +54,9 @@
         "href": "/contact-us"
       },
       {
-        "label": "Properties",
-        "href": "/properties"
-      },
-      {
         "label": "Investors",
-        "href": "/investors"
+        "href": "https://services.dataexchange.fiscloudservices.com/LogOn/2812066?redirectUrl=%2FDocument%2F2812066",
+        "isExternal": true
       }
     ],
     "subLinks": [

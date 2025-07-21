@@ -25,7 +25,12 @@ export function Footer({ data }: FooterProps) {
         )}
         <div className="font-makarony order-1 flex w-full flex-col items-start justify-between gap-[25px] lg:order-2 lg:flex-row lg:items-center">
           {data.links?.map((link, index) => (
-            <Link key={index} href={link?.href || '#'} className="text-[22px] text-white">
+            <Link
+              key={index}
+              href={link?.href || '#'}
+              target={link?.isExternal ? '_blank' : ''}
+              className="text-[22px] text-white"
+            >
               {link?.label}
             </Link>
           ))}
@@ -37,7 +42,11 @@ export function Footer({ data }: FooterProps) {
         <div className="flex items-center">
           {data?.subLinks?.map((link, index, array) => (
             <div key={index} className="leading-loose">
-              <Link href={link?.href || '#'} className="text-steel-blue text-xs">
+              <Link
+                href={link?.href || '#'}
+                target={link?.isExternal ? '_blank' : ''}
+                className="text-steel-blue text-xs"
+              >
                 {link?.label}
               </Link>
               <span
