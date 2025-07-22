@@ -76,7 +76,7 @@ const ContactUsForm = () => {
     }
   };
 
-  const subjects = ['General', 'Partnerships', 'Investments'];
+  const subjects = ['General', 'Investments'];
 
   // For the phone input
   const handlePhoneChange = (value: string) => {

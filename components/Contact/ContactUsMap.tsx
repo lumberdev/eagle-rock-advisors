@@ -8,7 +8,7 @@ const ContactUsMap = () => {
       <GoogleMapLoader />
       <div className="bg-frosted-white absolute right-0 bottom-0 left-0 m-[25px] p-[25px]">
         <div className="font-makarony text-eagle-navy flex max-w-[20ch] items-center space-x-2 text-[22px] lg:max-w-full">
-          <div className="font-medium">125 Park Avenue, New York, NY 10017 7th Floor</div>
+          <div className="font-medium">125 Park Avenue, 7th Floor, New York, NY 10017</div>
         </div>
       </div>
     </div>

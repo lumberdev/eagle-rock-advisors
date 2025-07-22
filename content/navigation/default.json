@@ -19,7 +19,7 @@
       },
       {
         "label": "Investors",
-        "href": "/investors",
+        "href": "https://services.dataexchange.fiscloudservices.com/LogOn/2812066",
         "isExternal": true
       }
     ],
@@ -39,7 +39,7 @@
       "src": "/uploads/Logos/eagle_rocks_footer_logo.svg",
       "alt": "Eagle Rock Properties"
     },
-    "copyright": "© 2025 Eagle Rock Properties LLC.",
+    "copyright": "© 2025 Eagle Rock Properties LLC",
     "links": [
       {
         "label": "About Us",
@@ -55,7 +55,7 @@
       },
       {
         "label": "Investors",
-        "href": "https://services.dataexchange.fiscloudservices.com/LogOn/2812066?redirectUrl=%2FDocument%2F2812066",
+        "href": "https://services.dataexchange.fiscloudservices.com/LogOn/2812066",
         "isExternal": true
       }
     ],
@@ -63,10 +63,6 @@
       {
         "label": "Privacy Policy",
         "href": "/privacy"
-      },
-      {
-        "label": "Terms of Service",
-        "href": "/terms"
       }
     ]
   }

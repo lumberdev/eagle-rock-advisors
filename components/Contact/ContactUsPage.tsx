@@ -5,22 +5,12 @@ import Hero from '../Hero';
 import ContactUsMap from './ContactUsMap';
 import ContactUsForm from './ContactUsForm';
 import { PageQuery, PageQueryVariables } from '@/tina/__generated__/types';
+import LoadingFallback from '../Loading/LoadingFallback';
 
 interface ContactUsPageProps {
   query: string;
   variables: PageQueryVariables;
   data: PageQuery;
-}
-
-function LoadingFallback() {
-  return (
-    <div className="flex min-h-screen items-center justify-center">
-      <div className="animate-pulse text-center">
-        <div className="mx-auto mb-4 h-12 w-48 rounded bg-gray-200"></div>
-        <p className="text-gray-500">Loading...</p>
-      </div>
-    </div>
-  );
 }
 
 export default function ContactUsPage({ query, variables, data }: ContactUsPageProps) {

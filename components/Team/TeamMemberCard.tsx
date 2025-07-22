@@ -46,7 +46,7 @@ const TeamMemberCard = ({
             <span className="font-monaSans w-full text-[9px] leading-[160%] lg:text-xs">
               {teamMember.title}
             </span>
-            <span className="font-monaSans w-full max-w-[22ch] text-[9px] leading-[160%] lg:text-xs">
+            <span className="font-monaSans w-full text-[9px] leading-[160%] lg:text-xs">
               {teamMember.company}
             </span>
           </div>
