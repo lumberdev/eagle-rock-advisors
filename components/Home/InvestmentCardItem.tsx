@@ -9,7 +9,7 @@ const InvestmentCardItem = ({ card }: InvestmentCardItemProps) => {
   return (
     <div className="sticky top-[20%] left-0 flex items-center justify-center pb-[25px] lg:pb-[50px]">
       <div
-        className="flex h-[500px] min-h-[500px] w-[100%] flex-col items-start justify-between p-[25px] lg:p-[50px]"
+        className="flex h-[448px] min-h-[500px] w-[100%] flex-col items-start justify-between p-[25px] lg:h-[500px] lg:p-[50px]"
         style={{ backgroundColor: card?.backgroundColor || '' }}
       >
         <h3
@@ -19,7 +19,7 @@ const InvestmentCardItem = ({ card }: InvestmentCardItemProps) => {
           {card?.heading}
         </h3>
         <p
-          className="font-monaSans text-[.875rem] md:text-[1.375rem]"
+          className="font-monaSans max-w-[30ch] text-[15px] md:text-[1.375rem] lg:max-w-full"
           style={{ color: card?.textColor || '' }}
         >
           {card?.subHeading}
