@@ -15,7 +15,7 @@ const NavMenu = ({
 }) => {
   return (
     <div
-      className={`bg-slate fixed top-0 left-0 z-50 flex h-screen w-full flex-col items-center justify-between ${isMenuOpen ? 'top-0' : 'top-[-100vh]'} pb-[50px] transition-all duration-500`}
+      className={`bg-slate fixed top-0 left-0 z-50 flex h-screen w-full flex-col items-center justify-between ${isMenuOpen ? 'top-0' : 'top-[-100vh]'} pb-[100px] transition-all duration-500`}
     >
       <Navbar data={data} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       <NavLinks links={data?.links} onLinkClick={() => setIsMenuOpen(false)} />
