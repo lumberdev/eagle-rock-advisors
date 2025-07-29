@@ -17,7 +17,7 @@ const InvestmentApproch = ({
         <Image
           src={investmentApprochData?.image || ''}
           alt="Investment Approach"
-          className="w-full max-w-[650px]"
+          className="w-full max-w-[768px]"
           width={100}
           height={100}
         />
