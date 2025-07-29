@@ -48,7 +48,9 @@ export default function HomePage({ query, variables, data }: HomePageProps) {
         {pageData?.about && <AboutSection aboutData={pageData.about} />}
         {pageData?.whatWeDo?.whatWeDoItems && <Stats data={pageData.whatWeDo.whatWeDoItems} />}
         {pageData?.experience && <Experience experienceData={pageData.experience} />}
-        {pageData?.stats?.statItems && <Stats data={pageData.stats.statItems} />}
+        {pageData?.stats?.statItems && (
+          <Stats data={pageData.stats.statItems} heading={pageData.stats.heading} />
+        )}
         {pageData?.investmentApproch && (
           <InvestmentApproch investmentApprochData={pageData.investmentApproch} />
         )}

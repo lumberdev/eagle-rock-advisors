@@ -183,6 +183,11 @@ const Page: Collection = {
       label: 'Stats Section',
       fields: [
         {
+          type: 'string',
+          name: 'heading',
+          label: 'Heading',
+        },
+        {
           type: 'object',
           name: 'statItems',
           label: 'Statistics',
