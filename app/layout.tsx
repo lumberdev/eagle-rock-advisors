@@ -18,9 +18,15 @@ export const metadata: Metadata = {
   description:
     'Eagle Rock is a leading full-service, vertically integrated real estate firm driving value in suburban multifamily housing in the Northeast and Mid-Atlantic U.S.',
   openGraph: {
-    images: {
-      url: absoluteImageUrl,
-    },
+    title: 'Eagle Rock Advisors | Institutional Investor. Local Owner Operator.',
+    description:
+      'Eagle Rock is a leading full-service, vertically integrated real estate firm driving value in suburban multifamily housing in the Northeast and Mid-Atlantic U.S.',
+    images: [
+      {
+        url: absoluteImageUrl,
+        alt: 'Eagle Rock Advisors | Institutional Investor. Local Owner Operator.',
+      },
+    ],
   },
 };
 
