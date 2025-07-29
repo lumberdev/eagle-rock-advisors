@@ -8,7 +8,7 @@ const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || 'https://eagle-rock-advisors-git-dev-lumberdevs.vercel.app';
 
 // The relative path to the image from the 'public' folder
-const relativeImagePath = '/public/og-image.png';
+const relativeImagePath = '/uploads/og-image.png';
 
 // The final absolute URL for the OpenGraph tag
 const absoluteImageUrl = `${siteUrl}${relativeImagePath}`;
