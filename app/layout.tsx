@@ -37,7 +37,6 @@ export const viewport: Viewport = {
   userScalable: false,
 };
 
-console.log('absoluteImageUrl', absoluteImageUrl);
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>

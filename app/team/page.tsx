@@ -5,6 +5,11 @@ import { PageQuery, PageQueryVariables } from '@/tina/__generated__/types';
 import { notFound } from 'next/navigation';
 import TeamPage from '@/components/Team/TeamPage';
 
+export async function generateMetadata() {
+  return {
+    title: 'Eagle Rock Advisors | Team',
+  };
+}
 const Team = async () => {
   let data: PageQuery | undefined = undefined;
   let query: string = '';

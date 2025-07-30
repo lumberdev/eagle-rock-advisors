@@ -5,6 +5,12 @@ import { PageQuery, PageQueryVariables } from '@/tina/__generated__/types';
 import { notFound } from 'next/navigation';
 import ContactUsPage from '@/components/Contact/ContactUsPage';
 
+export async function generateMetadata() {
+  return {
+    title: 'Eagle Rock Advisors | Contact',
+  };
+}
+
 const ContactUs = async () => {
   let data: PageQuery | undefined = undefined;
   let query: string = '';
