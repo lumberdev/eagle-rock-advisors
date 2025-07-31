@@ -5,9 +5,9 @@ import Timeline from './Timeline';
 import useWindowDimensions from '@/utils/useWindowDimensions';
 import { PageHistory } from '@/tina/__generated__/types';
 
-const mobileCardHeight = 300;
+const mobileCardHeight = 450;
 const desktopCardHeight = 450;
-const cardHeightClass = 'min-h-[300px] h-[300px] lg:h-[450px]';
+const cardHeightClass = 'min-h-[450px] h-[450px] lg:h-[450px]';
 const desktopCircleFromTop = desktopCardHeight / 2; // 225px
 const mobileCircleFromTop = 40; // 13.33% from the top to align with the year text
 
