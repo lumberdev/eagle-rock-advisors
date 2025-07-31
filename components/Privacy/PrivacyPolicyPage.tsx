@@ -30,7 +30,7 @@ const PrivacyPolicyPage = ({ query, variables, data }: PrivacyPolicyPageProps) =
     <Suspense fallback={<LoadingFallback />}>
       <div className="font-monaSans mx-auto mt-[150px] flex max-w-5xl flex-col px-[25px] pt-[50px] pb-[75px] lg:px-[50px] lg:pt-[25px]">
         <h1 className="text-eagle-navy mb-8 text-4xl font-bold md:text-5xl">Privacy Policy</h1>
-        <div className="[&_h6]:text-eagle-navy [&_ol]:mb-4 [&_ol]:list-decimal [&_ol]:pl-4 [&_p]:mt-4 [&_p]:mb-4 [&_ul]:list-disc [&_ul]:pl-8">
+        <div className="[&_h6]:text-eagle-navy [&_h6]:my-4 [&_ol]:mb-4 [&_ol]:list-decimal [&_ol]:pl-4 [&_p]:mt-4 [&_p]:mb-4 [&_ul]:mb-4 [&_ul]:list-disc [&_ul]:pl-8">
           {pageData.body ? <TinaMarkdown content={pageData.body} /> : null}
         </div>
       </div>
