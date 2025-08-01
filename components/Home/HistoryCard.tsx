@@ -32,7 +32,7 @@ const HistoryCard = React.forwardRef<HTMLDivElement, HistoryCardProps>(
             isActive ? 'opacity-100' : 'opacity-50'
           }`}
         >
-          <p className="font-makarony text-eagle-navy text-[21px] leading-[140%] lg:text-[24px]">
+          <p className="font-makarony text-eagle-navy mb-[10px] text-[21px] leading-[140%] lg:text-[24px]">
             {historyItem?.heading}
           </p>
           {historyItem?.subHeadingOne && (
