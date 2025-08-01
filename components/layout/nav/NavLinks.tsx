@@ -17,6 +17,7 @@ const NavLinks = ({
           key={index}
           href={link?.href || '#'}
           className="group flex items-center gap-2 lg:ml-[50px]"
+          target={link?.isExternal ? '_blank' : ''}
           onClick={onLinkClick}
         >
           <span className="font-makarony text-[38px] leading-[140%] text-white transition-all duration-300 lg:text-[68px]">

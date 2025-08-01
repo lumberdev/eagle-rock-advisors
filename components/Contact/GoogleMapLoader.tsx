@@ -51,7 +51,7 @@ const monotoneStyle = [
   },
 ];
 
-const GoogleMapLoader = () => {
+const GoogleMapLoader = ({ handleMarkerClick }: { handleMarkerClick: () => void }) => {
   const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '';
 
   if (!apiKey) {
@@ -123,6 +123,7 @@ const GoogleMapLoader = () => {
             scale: 2.5,
             anchor: { x: 12, y: 24, equals: () => false },
           }}
+          onClick={handleMarkerClick}
         />
       </GoogleMap>
     </LoadScriptNext>
