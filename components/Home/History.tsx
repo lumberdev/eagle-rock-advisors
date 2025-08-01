@@ -5,15 +5,17 @@ import Timeline from './Timeline';
 import useWindowDimensions from '@/utils/useWindowDimensions';
 import { PageHistory } from '@/tina/__generated__/types';
 
-const mobileCardHeight = 450;
+const mobileCardHeight = 375;
 const desktopCardHeight = 450;
-const cardHeightClass = 'min-h-[450px] h-[450px] lg:h-[450px]';
+const cardHeightClass = 'min-h-[300px] h-auto lg:min-h-[450px] mb-[75px] lg:mb-0';
 const desktopCircleFromTop = desktopCardHeight / 2; // 225px
 const mobileCircleFromTop = 40; // 13.33% from the top to align with the year text
 
 const History = ({ historyData }: { historyData: PageHistory }) => {
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [cardHeights, setCardHeights] = useState<number[]>([]);
   const containerRef = React.useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const { isDesktop } = useWindowDimensions();
 
   useEffect(() => {
@@ -49,8 +51,32 @@ const History = ({ historyData }: { historyData: PageHistory }) => {
   }, []);
 
   const totalItems = historyData?.historyItems?.length || 0;
+
+  useEffect(() => {
+    const handleResize = () => {
+      // Ensure all refs are populated before calculating heights
+      if (cardRefs.current.length !== totalItems || cardRefs.current.some((ref) => ref === null)) {
+        return;
+      }
+      const heights = cardRefs.current.map((ref) => ref?.offsetHeight || 0);
+      // Prevent unnecessary re-renders if heights haven't changed
+      if (JSON.stringify(heights) !== JSON.stringify(cardHeights)) {
+        setCardHeights(heights);
+      }
+    };
+
+    // A timeout ensures that the measurement happens after the DOM has been updated.
+    const timeoutId = setTimeout(handleResize, 100);
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(timeoutId);
+    };
+  }, [historyData, totalItems, isDesktop, cardHeights]);
+
   const filledItemIndex = Math.min(
-    scrollProgress * totalItems - (isDesktop ? 0.5 : 0.1333),
+    scrollProgress * totalItems - (isDesktop ? 0.5 : 0.12),
     totalItems - 1
   );
 
@@ -71,16 +97,17 @@ const History = ({ historyData }: { historyData: PageHistory }) => {
             filledItemIndex={filledItemIndex}
             scrollProgress={scrollProgress}
             isDesktop={isDesktop}
-            desktopCircleFromTop={desktopCircleFromTop}
             mobileCircleFromTop={mobileCircleFromTop}
-            desktopCardHeight={desktopCardHeight}
-            mobileCardHeight={mobileCardHeight}
+            cardHeights={cardHeights}
           />
 
           {/* History cards */}
           <div ref={containerRef} className="relative">
             {historyData?.historyItems?.map((item: any, index: number) => (
               <HistoryCard
+                ref={(el) => {
+                  cardRefs.current[index] = el;
+                }}
                 key={index}
                 historyItem={item}
                 index={index}

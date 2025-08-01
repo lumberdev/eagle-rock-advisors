@@ -5,10 +5,8 @@ interface TimelineProps {
   scrollProgress: number; // 0 to 1
   isDesktop: boolean;
   filledItemIndex: number;
-  desktopCardHeight: number;
-  mobileCardHeight: number;
-  desktopCircleFromTop: number;
   mobileCircleFromTop: number;
+  cardHeights: number[];
 }
 
 const Timeline: React.FC<TimelineProps> = ({
@@ -16,10 +14,8 @@ const Timeline: React.FC<TimelineProps> = ({
   scrollProgress,
   isDesktop,
   filledItemIndex,
-  desktopCardHeight,
-  mobileCardHeight,
-  desktopCircleFromTop,
   mobileCircleFromTop,
+  cardHeights,
 }) => {
   const lineFillPercentage = scrollProgress * 100;
 
@@ -40,11 +36,14 @@ const Timeline: React.FC<TimelineProps> = ({
       {/* Circles */}
       {Array.from({ length: totalItems }).map((_, index) => {
         const isFilled = index <= filledItemIndex;
-        const desktopPositionPercentage = desktopCircleFromTop + index * desktopCardHeight; //Circle should be half the card height from top
-        const mobilePositionPercentage = mobileCircleFromTop + index * mobileCardHeight;
-        const topPosition = isDesktop
-          ? `${desktopPositionPercentage}px`
-          : `${mobilePositionPercentage}px`;
+
+        // Calculate the top position by summing the heights of previous cards
+        const mobileMargin = isDesktop ? 0 : 75; // Add 75px margin for mobile
+        const topPosition = cardHeights
+          .slice(0, index)
+          .reduce((acc, height) => acc + height + mobileMargin, 0);
+
+        const circleOffset = isDesktop ? cardHeights[index] / 2 : mobileCircleFromTop;
 
         return (
           <div
@@ -53,7 +52,7 @@ const Timeline: React.FC<TimelineProps> = ({
               isFilled ? 'bg-champagne-gold border-champagne-gold' : 'border-[#E5E5E5] bg-white'
             }`}
             style={{
-              top: topPosition,
+              top: `${topPosition + circleOffset}px`,
             }}
           />
         );
