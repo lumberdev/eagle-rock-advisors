@@ -6,6 +6,9 @@ interface HistoryCardProps {
     subHeading: string;
     equity: string;
     operatingIn: string;
+    fundName: string;
+    firstClose: string;
+    secondClose: string;
   };
   index: number;
   cardHeightClass: string;
@@ -42,6 +45,11 @@ const HistoryCard: React.FC<HistoryCardProps> = ({
         <p className="font-makarony text-eagle-navy text-[21px] leading-[140%] lg:text-[24px]">
           {historyItem?.subHeading}
         </p>
+        {historyItem?.fundName && (
+          <p className="text-eagle-navy text-slate text-[16px] leading-[160%]">
+            Fund: {historyItem?.fundName}
+          </p>
+        )}
         {historyItem?.equity && (
           <p className="text-eagle-navy text-slate text-[16px] leading-[160%]">
             {lastItem && 'Target'} Equity: {historyItem?.equity}
@@ -49,7 +57,17 @@ const HistoryCard: React.FC<HistoryCardProps> = ({
         )}
         {historyItem?.operatingIn && (
           <p className="text-eagle-navy text-slate text-[16px] leading-[160%]">
-            {lastItem ? 'First Close:' : 'Operating In:'} {historyItem?.operatingIn}
+            {'Operating In:'} {historyItem?.operatingIn}
+          </p>
+        )}
+        {historyItem?.firstClose && (
+          <p className="text-eagle-navy text-slate text-[16px] leading-[160%]">
+            {'First Close:'} {historyItem?.firstClose}
+          </p>
+        )}
+        {historyItem?.secondClose && (
+          <p className="text-eagle-navy text-slate text-[16px] leading-[160%]">
+            {'Second Close:'} {historyItem?.secondClose}
           </p>
         )}
       </div>

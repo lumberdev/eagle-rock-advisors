@@ -361,6 +361,11 @@ const Page: Collection = {
             },
             {
               type: 'string',
+              name: 'fundName',
+              label: 'Fund Name',
+            },
+            {
+              type: 'string',
               name: 'equity',
               label: 'Equity',
             },
@@ -368,6 +373,16 @@ const Page: Collection = {
               type: 'string',
               name: 'operatingIn',
               label: 'Operating In',
+            },
+            {
+              type: 'string',
+              name: 'firstClose',
+              label: 'First Close',
+            },
+            {
+              type: 'string',
+              name: 'secondClose',
+              label: 'Second Close',
             },
           ],
         },
