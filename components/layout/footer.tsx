@@ -14,15 +14,17 @@ export function Footer({ data }: FooterProps) {
     <footer className="bg-eagle-navy flex flex-col gap-[50px] px-[25px] py-[50px] text-white lg:gap-[25px] lg:px-[50px] lg:py-[25px]">
       <div className="flex w-full items-center justify-between gap-[100px]">
         {/* Logo */}
-        {data.logo?.src && (
-          <Image
-            src={data.logo.src}
-            alt={data.logo.alt || 'Logo'}
-            className="order-2 h-12 w-auto self-start lg:order-1"
-            width={100}
-            height={100}
-          />
-        )}
+        <Link href="/">
+          {data.logo?.src && (
+            <Image
+              src={data.logo.src}
+              alt={data.logo.alt || 'Logo'}
+              className="order-2 h-12 w-auto self-start lg:order-1"
+              width={100}
+              height={100}
+            />
+          )}
+        </Link>
         <div className="font-makarony order-1 flex w-full flex-col items-start justify-between gap-[25px] lg:order-2 lg:flex-row lg:items-center">
           {data.links?.map((link, index) => (
             <Link
@@ -31,7 +33,7 @@ export function Footer({ data }: FooterProps) {
               target={link?.isExternal ? '_blank' : ''}
               className="text-[22px] text-white"
             >
-              {link?.label}
+              <h4 className="font-makarony text-[21px] text-white lg:text-[24px]">{link?.label}</h4>
             </Link>
           ))}
         </div>

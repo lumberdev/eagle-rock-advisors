@@ -53,9 +53,9 @@ const Hero = ({
       />
       <div className="z-10 p-[25px] md:p-[50px]">
         {heading && (
-          <h4 className="w-full max-w-[18ch] text-left md:max-w-full md:text-[3.25rem]">
+          <h1 className="w-full max-w-[18ch] text-left text-[32px] md:max-w-full md:text-[42px]">
             {heading}
-          </h4>
+          </h1>
         )}
       </div>
     </section>

@@ -29,7 +29,7 @@ export default function ContactUsPage({ query, variables, data }: ContactUsPageP
 
   return (
     <Suspense fallback={<LoadingFallback />}>
-      <div className="font-monaSans flex flex-col items-center justify-center">
+      <div className="font-monaSans flex flex-col items-center justify-center overflow-x-hidden">
         {pageData?.hero && (
           <Hero heroData={pageData.hero} heroContainerStyles="max-h-[300px] md:max-h-[500px]" />
         )}
