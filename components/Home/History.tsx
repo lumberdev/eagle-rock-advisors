@@ -104,7 +104,7 @@ const History = ({ historyData }: { historyData: PageHistory }) => {
           {/* History cards */}
           <div ref={containerRef} className="relative">
             <div
-              className="absolute inset-0 z-5 h-[150px] w-full"
+              className="absolute inset-0 z-5 h-[25px] w-full lg:h-[150px]"
               style={{
                 background: 'linear-gradient(180deg, #FFFFFF 25%, rgba(255, 255, 255, 0) 100%)',
               }}
