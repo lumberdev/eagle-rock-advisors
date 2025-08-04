@@ -103,6 +103,12 @@ const History = ({ historyData }: { historyData: PageHistory }) => {
 
           {/* History cards */}
           <div ref={containerRef} className="relative">
+            <div
+              className="absolute inset-0 z-5 h-[150px] w-full"
+              style={{
+                background: 'linear-gradient(180deg, #FFFFFF 25%, rgba(255, 255, 255, 0) 100%)',
+              }}
+            />
             {historyData?.historyItems?.map((item: any, index: number) => (
               <HistoryCard
                 ref={(el) => {
