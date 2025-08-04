@@ -14,14 +14,14 @@ export function Footer({ data }: FooterProps) {
     <footer className="bg-eagle-navy flex flex-col gap-[50px] px-[25px] py-[50px] text-white lg:gap-[25px] lg:px-[50px] lg:py-[25px]">
       <div className="flex w-full items-center justify-between gap-[100px]">
         {/* Logo */}
-        <Link href="/">
+        <Link href="/" className="order-2 flex-shrink-0 self-start lg:order-1">
           {data.logo?.src && (
             <Image
               src={data.logo.src}
               alt={data.logo.alt || 'Logo'}
-              className="order-2 h-12 w-auto self-start lg:order-1"
-              width={100}
-              height={100}
+              className="self-start"
+              width={40}
+              height={40}
             />
           )}
         </Link>
