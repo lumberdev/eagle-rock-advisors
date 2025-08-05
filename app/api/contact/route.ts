@@ -9,8 +9,8 @@ export async function POST(request: Request) {
 
     const { data, error } = await resend.emails.send({
       from: 'Eagle Rock Advisors <onboarding@resend.dev>',
-      to: 'devs+eagle-rocks@lumber.dev', // Replace with your email
-      subject: `New Contact Form: ${subject || 'No Subject'}`,
+      to: 'rhut@lumber.dev', // Replace with your email
+      subject: `New Contact Form: ${subject || 'No Subject Selected'}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #1a365d;">
           <h2 style="color: #1a365d;">Contact Form Submission</h2>

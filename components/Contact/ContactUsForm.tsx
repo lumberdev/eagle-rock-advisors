@@ -19,7 +19,8 @@ const ContactUsForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
     success: boolean;
-    message: string;
+    message?: string;
+    error?: string;
   } | null>(null);
 
   const {
@@ -63,13 +64,12 @@ const ContactUsForm = () => {
         });
         reset();
       } else {
-        throw new Error(result.error || 'Something went wrong');
+        throw new Error('Failed to send message. Please try again.');
       }
     } catch (error) {
       setSubmitStatus({
         success: false,
-        message:
-          error instanceof Error ? error.message : 'Failed to send message. Please try again.',
+        error: error instanceof Error ? error.message : 'Failed to send message. Please try again.',
       });
     } finally {
       setIsSubmitting(false);
@@ -87,7 +87,7 @@ const ContactUsForm = () => {
     <div
       className={`bg-slate ${submitStatus ? 'aspect-[1/1] lg:h-full' : 'h-full min-h-[680px]'} order-1 flex w-full flex-col px-[25px] py-[50px] lg:order-2 lg:min-h-[680px] lg:w-1/2 lg:px-[50px]`}
     >
-      {submitStatus ? (
+      {submitStatus?.success ? (
         <FormSubmitSuccess />
       ) : (
         <form
@@ -223,7 +223,7 @@ const ContactUsForm = () => {
               className="w-full resize-none border-0 border-b border-[#ffffff40] bg-transparent p-2 text-white focus:border-white focus:ring-0 focus:outline-none"
             />
             {errors.message && (
-              <p className="mt-1 text-xs text-red-400">{errors.message.message}</p>
+              <p className="mt-1 text-xs text-red-400">{errors.message?.message}</p>
             )}
           </div>
 
@@ -235,6 +235,9 @@ const ContactUsForm = () => {
             Submit
           </button>
         </form>
+      )}
+      {submitStatus?.error && (
+        <p className="text-md mt-[10px] text-center text-red-400">{submitStatus.error}</p>
       )}
     </div>
   );
