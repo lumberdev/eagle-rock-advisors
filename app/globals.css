@@ -1,0 +1,276 @@
+@import 'tailwindcss';
+
+@theme {
+  /* ===== Breakpoints ===== */
+  --breakpoint-xs: 375px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  /* ===== Font Families ===== */
+  --font-monaSans:
+    monaSans, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  --font-makarony: 'makarony', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+
+  /* ===== Colors ===== */
+  /* Brand Colors */
+  --color-eagle-navy: #1a2a42;
+  --color-steel-blue: #5b728a;
+  --color-slate: #3a5166;
+  --color-admiral-blue: #223a5e;
+  --color-midnight-blue: #0f1b2d;
+  --color-frosted-white: #eaeff4;
+  --color-champagne-gold: #d4b183;
+
+  /* Grayscale */
+  --color-white: #ffffff;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  --color-black: #000000;
+
+  /* ===== Typography ===== */
+  /* Font Sizes */
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-lg: 1.125rem; /* 18px */
+  --font-size-xl: 1.25rem; /* 20px */
+  --font-size-2xl: 1.5rem; /* 24px */
+  --font-size-3xl: 1.875rem; /* 30px */
+  --font-size-4xl: 2.25rem; /* 36px */
+  --font-size-5xl: 3rem; /* 48px */
+  --font-size-6xl: 3.75rem; /* 60px */
+  --font-size-7xl: 4.5rem; /* 72px */
+  --font-size-8xl: 6rem; /* 96px */
+  --font-size-9xl: 8rem; /* 128px */
+
+  /* Line Heights */
+  --line-height-none: 1;
+  --line-height-tight: 1.1; /* 110% */
+  --line-height-body: 1.4; /* 140% */
+  --line-height-relaxed: 1.5; /* 150% */
+  --line-height-loose: 1.6; /* 160% */
+
+  /* Font Weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Letter Spacing */
+  --tracking-tightest: -0.06em;
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+  --tracking-widest-2: 0.2em;
+
+  /* Border Radius */
+  --radius-none: 0px;
+  --radius-sm: 0.125rem;
+  --radius: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Box Shadow */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+  --shadow-none: 0 0 #0000;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+@layer base {
+  :root {
+    /* Apply font variables */
+    --font-mona-sans: var(--font-mona-sans);
+    --font-makarony: var(--font-makarony);
+
+    /* Default text color */
+    color: var(--color-gray-900);
+  }
+
+  /* Base styles */
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    font-family: var(--font-sans);
+    line-height: var(--line-height-normal);
+    box-sizing: border-box;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-makarony);
+    font-weight: 400;
+    letter-spacing: 0;
+    color: var(--color-white);
+  }
+
+  .body-xlarge,
+  .body-large,
+  .body-regular,
+  .body-small,
+  .overline,
+  .label-large,
+  .label-medium,
+  .label-small {
+    font-family: var(--font-mona-sans);
+  }
+
+  /* Typography */
+  h1,
+  .h1 {
+    font-size: 90px; /* 90px */
+    line-height: 1;
+  }
+
+  h2,
+  .h2 {
+    font-size: 68px; /* 68px */
+    line-height: 1;
+  }
+
+  h3,
+  .h3 {
+    font-size: 52px; /* 52px */
+    line-height: 1.4; /* 140% */
+  }
+
+  h4,
+  .h4 {
+    font-size: 38px; /* 38px */
+    line-height: 1.4; /* 140% */
+  }
+
+  h5,
+  .h5 {
+    font-size: 28px; /* 28px */
+    line-height: 1.4; /* 140% */
+  }
+
+  h6,
+  .h6 {
+    font-size: 22px; /* 22px */
+    line-height: 1.4; /* 140% */
+  }
+
+  /* Overline style */
+  .overline {
+    font-size: 12px; /* 12px */
+    line-height: 1.6; /* 160% */
+    letter-spacing: 0.1em; /* 10% */
+  }
+
+  /* Override for label line heights */
+  .label-large,
+  .label-medium,
+  .label-small {
+    letter-spacing: 0.1em; /* 10% */
+  }
+
+  /* Label styles */
+  .label-large {
+    font-size: 22px; /* 22px */
+    line-height: 1.4; /* 140% */
+  }
+
+  .label-medium {
+    font-size: 16px; /* 16px */
+    line-height: 1.4; /* 140% */
+  }
+
+  .label-small {
+    font-size: 14px; /* 14px */
+    line-height: 1.6; /* 160% */
+  }
+
+  .body-xlarge {
+    font-size: 16px; /* 16px */
+    line-height: 1.6; /* 160% */
+  }
+  /* Body text styles */
+  .body-large {
+    font-size: 16px; /* 16px */
+    line-height: 1.4; /* 140% */
+  }
+
+  .body-regular {
+    font-size: 14px; /* 14px */
+    line-height: 1.6; /* 160% */
+  }
+
+  .body-small {
+    font-size: 12px; /* 12px */
+    line-height: 1.6; /* 160% */
+  }
+
+  .button-large,
+  .button-medium,
+  .button-small {
+    font-family: var(--font-mona-sans);
+    border-width: 2px;
+    border-style: solid;
+  }
+  .button-large {
+    font-size: 16px; /* 16px */
+    line-height: 1.4; /* 140% */
+    padding: 2.0313rem 1.25rem; /* 32.5px 20px */
+  }
+  .button-medium {
+    font-size: 14px; /* 14px */
+    line-height: 1.6; /* 160% */
+    padding: 1.5625rem 1.25rem; /* 25px 20px */
+  }
+  .button-small {
+    font-size: 12px; /* 12px */
+    line-height: 1.6; /* 160% */
+    padding: 1.125rem 1.25rem;
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "header": {
+    "logo": {
+      "src": "/uploads/Logos/eagle_rocks_logo.svg",
+      "alt": "Eagle Rock Advisors"
+    },
+    "links": [
+      {
+        "label": "About Us",
+        "href": "/"
+      },
+      {
+        "label": "Team",
+        "href": "/team"
+      },
+      {
+        "label": "Contact",
+        "href": "/contact-us"
+      },
+      {
+        "label": "Investors",
+        "href": "https://services.dataexchange.fiscloudservices.com/LogOn/2812066",
+        "isExternal": true
+      }
+    ],
+    "subLinks": [
+      {
+        "label": "Privacy Policy",
+        "href": "/privacy-policy"
+      }
+    ]
+  },
+  "footer": {
+    "logo": {
+      "src": "/uploads/Logos/ERP Icon Crest.svg",
+      "alt": "Eagle Rock Properties"
+    },
+    "copyright": "© 2025 Eagle Rock Properties LLC",
+    "links": [
+      {
+        "label": "About Us",
+        "href": "/"
+      },
+      {
+        "label": "Team",
+        "href": "/team"
+      },
+      {
+        "label": "Contact",
+        "href": "/contact-us"
+      },
+      {
+        "label": "Investors",
+        "href": "https://services.dataexchange.fiscloudservices.com/LogOn/2812066",
+        "isExternal": true
+      }
+    ],
+    "subLinks": [
+      {
+        "label": "Privacy Policy",
+        "href": "/privacy-policy"
+      }
+    ]
+  }
+}

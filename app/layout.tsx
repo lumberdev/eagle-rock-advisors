@@ -1,20 +1,46 @@
 import React from 'react';
-import { Metadata } from 'next';
-import { cn } from '@/lib/utils';
-// import { monaSans, freightDisplay } from '../assets/fonts/fonts';
+import type { Metadata, Viewport } from 'next';
+import './globals.css';
+import './styles.css';
 
-import '@/styles.css';
+// Assume your site's URL is stored in an environment variable
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://eagle-rock-advisors-git-dev-lumberdevs.vercel.app';
+
+// The relative path to the image from the 'public' folder
+const relativeImagePath = '/uploads/og-image.png';
+
+// The final absolute URL for the OpenGraph tag
+const absoluteImageUrl = `${siteUrl}${relativeImagePath}`;
 
 export const metadata: Metadata = {
-  title: 'Eagle Rock Advisors',
-  description: 'Eagle Rock Advisors Website',
+  title: 'Eagle Rock Advisors | Institutional Investor. Experienced Owner Operator.',
+  description:
+    'Eagle Rock is a leading full-service, vertically integrated real estate firm driving value in suburban multifamily housing in the Northeast and Mid-Atlantic U.S.',
+  openGraph: {
+    title: 'Eagle Rock Advisors | Institutional Investor. Experienced Owner Operator.',
+    description:
+      'Eagle Rock is a leading full-service, vertically integrated real estate firm driving value in suburban multifamily housing in the Northeast and Mid-Atlantic U.S.',
+    images: [
+      {
+        url: absoluteImageUrl,
+        alt: 'Eagle Rock Advisors | Institutional Investor. Experienced Owner Operator.',
+      },
+    ],
+  },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      {/* <html lang="en" className={cn(monaSans.variable, freightDisplay.variable)}> */}
-      <body className="min-h-screen bg-background font-sans antialiased">{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body>{children}</body>
     </html>
   );
 }

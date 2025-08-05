@@ -1,0 +1,43 @@
+'use client';
+import { useTina } from 'tinacms/dist/react';
+import { Suspense } from 'react';
+import Hero from '../Hero';
+import ContactUsMap from './ContactUsMap';
+import ContactUsForm from './ContactUsForm';
+import { PageQuery, PageQueryVariables } from '@/tina/__generated__/types';
+import LoadingFallback from '../Loading/LoadingFallback';
+
+interface ContactUsPageProps {
+  query: string;
+  variables: PageQueryVariables;
+  data: PageQuery;
+}
+
+export default function ContactUsPage({ query, variables, data }: ContactUsPageProps) {
+  const { data: tinaData } = useTina({
+    query,
+    variables,
+    data,
+  });
+
+  if (!tinaData) {
+    return <LoadingFallback />;
+  }
+
+  const pageData = tinaData.page;
+  if (!pageData) return null;
+
+  return (
+    <Suspense fallback={<LoadingFallback />}>
+      <div className="font-monaSans flex flex-col items-center justify-center overflow-x-hidden">
+        {pageData?.hero && (
+          <Hero heroData={pageData.hero} heroContainerStyles="max-h-[300px] md:max-h-[500px]" />
+        )}
+        <div className="flex w-screen flex-col items-center justify-center gap-[25px] px-[25px] py-[50px] lg:max-w-[1440px] lg:flex-row lg:gap-[50px]">
+          <ContactUsMap />
+          <ContactUsForm />
+        </div>
+      </div>
+    </Suspense>
+  );
+}

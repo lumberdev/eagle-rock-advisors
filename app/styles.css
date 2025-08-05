@@ -1,0 +1,60 @@
+@keyframes bounce-horizontal {
+  0%,
+  100% {
+    transform: translateX(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateX(6px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 0.5;
+  }
+}
+
+body.preventScroll {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.PhoneInputCountry {
+  border: 1px solid #ffffff40 !important;
+  padding: 10px !important;
+  margin-right: 10px !important;
+}
+.PhoneInputCountryIcon {
+  margin-right: 10px !important;
+}
+
+.PhoneInputCountrySelect:focus + .PhoneInputCountryIcon--border,
+.PhoneInputCountrySelect:focus + .PhoneInputCountryIcon + .PhoneInputCountrySelectArrow {
+  box-shadow: none !important;
+  color: FFFFFF40 !important;
+}
+
+.PhoneInputCountrySelectArrow {
+  margin-left: 10px !important;
+}
+
+.PhoneInputInput {
+  border-bottom: 1px solid #ffffff40 !important;
+  padding-bottom: 10px !important;
+}
+
+input:focus-visible {
+  outline: none !important;
+}
+
+option {
+  color: var(--color-white) !important;
+  background-color: var(--color-eagle-navy) !important;
+}
+option:hover {
+  background-color: var(--color-steel-blue) !important;
+  color: var(--color-white) !important;
+}
