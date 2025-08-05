@@ -21,7 +21,6 @@ const Home = async () => {
   }
 
   if (!data) return notFound();
-
   return (
     <Layout>
       <HomePage query={query} variables={variables} data={data} />
