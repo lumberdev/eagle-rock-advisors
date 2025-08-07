@@ -76,7 +76,7 @@ const TeamModal: React.FC<TeamModalProps> = ({ teamMember, onClose }) => {
                   >
                     <div className="flex flex-col">
                       <span className="font-monaSans text-steel-blue text-sm leading-[160%]">
-                        {teamMember.title}``
+                        {teamMember.title}
                       </span>
                       <span className="font-monaSans text-steel-blue text-sm leading-[160%]">
                         {teamMember.company}
