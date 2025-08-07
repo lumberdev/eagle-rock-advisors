@@ -40,7 +40,7 @@ const TeamModal: React.FC<TeamModalProps> = ({ teamMember, onClose }) => {
         className="text-eagle-navy fixed inset-0 z-100 flex justify-center overflow-y-auto md:items-center md:overflow-y-hidden md:p-4"
         onClick={handleBackdropClick}
       >
-        <div className="absolute flex min-h-screen w-full justify-center px-4 py-[150px] md:static md:h-full md:w-full md:items-center md:px-0 md:py-0">
+        <div className="absolute flex min-h-screen w-full justify-center px-4 py-[calc(env(safe-area-inset-top)+100px)] md:static md:h-full md:w-full md:items-center md:px-0 md:py-0">
           {/* Modal Content */}
           <div
             ref={modalRef}
