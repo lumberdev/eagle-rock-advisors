@@ -17,8 +17,10 @@ const TeamMemberCard = ({
   useEffect(() => {
     if (modalOpen) {
       document.body.style.overflow = 'hidden';
+      document.body.classList.add('overflow-y-hidden', 'preventScroll');
     } else {
       document.body.style.overflow = 'auto';
+      document.body.classList.remove('overflow-y-hidden', 'preventScroll');
     }
   }, [modalOpen]);
 
