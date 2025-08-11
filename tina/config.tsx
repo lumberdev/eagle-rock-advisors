@@ -4,9 +4,11 @@ import nextConfig from '../next.config';
 import Page from './collection/page';
 import { navigation } from './collections/navigation';
 
+const branch = process.env.VERCEL_GIT_COMMIT_REF || 'dev';
+
 const config = defineConfig({
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID!,
-  branch: 'dev',
+  branch,
   token: process.env.TINA_TOKEN!,
   media: {
     tina: {
