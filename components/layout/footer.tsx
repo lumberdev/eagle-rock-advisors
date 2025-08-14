@@ -40,7 +40,10 @@ export function Footer({ data }: FooterProps) {
       </div>
       {/* Sub Links */}
       <div className="font-monaSans flex w-full flex-col justify-between tracking-wider uppercase lg:flex-row lg:items-center">
-        <p className="text-steel-blue text-xs leading-loose">{data.copyright}</p>
+        <div>
+          <p className="text-steel-blue text-xs leading-loose">{data.copyright}</p>
+          <p className="text-steel-blue text-xs leading-loose">{data.secondCopyright}</p>
+        </div>
         <div className="flex items-center">
           {data?.subLinks?.map((link, index, array) => (
             <div key={index} className="leading-loose">
