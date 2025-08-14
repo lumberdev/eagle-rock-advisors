@@ -120,6 +120,12 @@ export const navigation: Collection = {
           required: true,
         },
         {
+          type: 'string',
+          name: 'secondCopyright',
+          label: 'Second Copyright Text',
+          required: true,
+        },
+        {
           type: 'object',
           name: 'links',
           label: 'Footer Links',
