@@ -9,7 +9,7 @@ export async function POST(request: Request) {
 
     const { data, error } = await resend.emails.send({
       from: 'Eagle Rock Advisors <onboarding@resend.dev>',
-      to: 'rhut@lumber.dev', // Replace with your email
+      to: 'contactus@eaglerockadv.com', // Replace with your email
       subject: `New Contact Form: ${subject || 'No Subject Selected'}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #1a365d;">
