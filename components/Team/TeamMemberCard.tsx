@@ -33,7 +33,7 @@ const TeamMemberCard = ({
         alt={teamMember?.name || 'Photo Coming Soon'}
         width={600}
         height={600}
-        className="mb-[10px] w-full max-w-[400px]"
+        className="mb-[10px] aspect-[20/27] w-full max-w-[400px]"
       />
       <div className="flex w-full flex-col items-start justify-start">
         <h6
