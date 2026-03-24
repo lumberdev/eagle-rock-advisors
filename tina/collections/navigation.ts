@@ -123,7 +123,7 @@ export const navigation: Collection = {
           type: 'string',
           name: 'secondCopyright',
           label: 'Second Copyright Text',
-          required: true,
+          required: false,
         },
         {
           type: 'object',
