@@ -16,7 +16,7 @@ const NavLinks = ({
         <Link
           key={index}
           href={link?.href || '#'}
-          className="group relative flex items-center gap-2 lg:ml-[50px]"
+          className="group relative flex items-center gap-2"
           target={link?.isExternal ? '_blank' : ''}
           onClick={onLinkClick}
         >
